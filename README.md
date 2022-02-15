@@ -1,6 +1,10 @@
 # DnD-CharacterManager
 This Repo includes a DnD-CharacterManager project for Uni as part of the lecture Advanced Software Engineering
 
+## Angemeldeter Umfang
+Mit diesem Terminal basiertem Tool soll es möglich sein Charaktere anzulegen, zu verwalten und den Spielfortschritt des Charakters abzubilden. Das ganze soll natürlich auch Regelkonform sein und dementsprechend dem offiziellem Regelwerk von D&D 5e folgen.
+Dabei gilt es neben den normalen Charakterbögen des Spiels, auch die jeweiligen Klassen etc. abzubilden, sowie die verschiedenen Wege zur Charakter Erstellung. Dadurch soll es ermöglicht werden nicht nur vorhandene Charaktere anzulegen, sondern auch Charaktere zu generieren.
+
 ## Programmentwurf Anforderungen
 > **Definition Programmentwurf**: Ein Programmentwurf umfasst die Bearbeitung einer Aufgabenstellung mit der Auswahl geeigneter Methoden,
 der Formulierung der verwendeten Algorithmen in einer
