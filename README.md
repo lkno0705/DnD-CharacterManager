@@ -1,6 +1,11 @@
 # DnD-CharacterManager
 This Repo includes a DnD-CharacterManager project for Uni as part of the lecture Advanced Software Engineering
 
+## Resources
+* [DnD 5e Players Handbook google drive](https://drive.google.com/file/d/0Bx1CPyXhMVKYSU4xRkN3dkV4YjQ/view?resourcekey=0-svEEG_yD7O48DP8JttkErQ)
+* [Players Handbook DnD Beyond](https://www.dndbeyond.com/sources/phb)
+* [DnD Beyond](https://www.dndbeyond.com/)
+
 ## Angemeldeter Umfang
 Mit diesem Terminal basiertem Tool soll es möglich sein Charaktere anzulegen, zu verwalten und den Spielfortschritt des Charakters abzubilden. Das ganze soll natürlich auch Regelkonform sein und dementsprechend dem offiziellem Regelwerk von D&D 5e folgen.
 Dabei gilt es neben den normalen Charakterbögen des Spiels, auch die jeweiligen Klassen etc. abzubilden, sowie die verschiedenen Wege zur Charakter Erstellung. Dadurch soll es ermöglicht werden nicht nur vorhandene Charaktere anzulegen, sondern auch Charaktere zu generieren.
@@ -9,11 +14,6 @@ Dabei gilt es neben den normalen Charakterbögen des Spiels, auch die jeweiligen
 > **Definition Programmentwurf**: Ein Programmentwurf umfasst die Bearbeitung einer Aufgabenstellung mit der Auswahl geeigneter Methoden,
 der Formulierung der verwendeten Algorithmen in einer
 Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit und die Programmdokumentation.
-
-## Resources
-* [DnD 5e Players Handbook google drive](https://drive.google.com/file/d/0Bx1CPyXhMVKYSU4xRkN3dkV4YjQ/view?resourcekey=0-svEEG_yD7O48DP8JttkErQ)
-* [Players Handbook DnD Beyond](https://www.dndbeyond.com/sources/phb)
-* [DnD Beyond](https://www.dndbeyond.com/)
 
 ### Praxisprojekt
 * Code und schriftliche Dokumentation
