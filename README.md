@@ -19,7 +19,7 @@ Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit u
     * GRASP (Kopplung und Kohäsion)
     * DRY
 * Entwurfsmuster
-    * >= 2 Entwurfsmuster einsetzen und begründen
+    * \>= 2 Entwurfsmuster einsetzen und begründen
     * UML-Diagramm vorher und nachher
 * Domain Driven Design
     * Analyse der Ubiquitous Language
@@ -33,7 +33,7 @@ Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit u
     * Dependency Rule
     * Schichten analysieren
 * Unit Tests
-    * >= 10 Unit Tests
+    * \>= 10 Unit Tests
     * ATRIP-Regeln
     * Code Coverage
     * Einsatz von Mocks
