@@ -14,6 +14,7 @@ Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit u
 * **Keine Fremdbibliotheken**
 
 ### Bewertung
+* **Siehe Dokumentations Vorlage**
 * Analyse und Begründung für:
     * SOLID
     * GRASP (Kopplung und Kohäsion)
