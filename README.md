@@ -10,6 +10,11 @@ Dabei gilt es neben den normalen Charakterbögen des Spiels, auch die jeweiligen
 der Formulierung der verwendeten Algorithmen in einer
 Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit und die Programmdokumentation.
 
+## Resources
+* [DnD 5e Players Handbook google drive](https://drive.google.com/file/d/0Bx1CPyXhMVKYSU4xRkN3dkV4YjQ/view?resourcekey=0-svEEG_yD7O48DP8JttkErQ)
+* [Players Handbook DnD Beyond](https://www.dndbeyond.com/sources/phb)
+* [DnD Beyond](https://www.dndbeyond.com/)
+
 ### Praxisprojekt
 * Code und schriftliche Dokumentation
 * Java oder C#
