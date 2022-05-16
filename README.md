@@ -83,12 +83,12 @@ Wenn du in einem Proficient bist und einen Proficiency-Bonus von +3 hast dann ad
 # Domain Driven Design
 
 ## Entities
-* Player
 * Class
 * Race
 * DeathSaves
 * Attributes
 * Inventory
+* Currencys
 
 ## Value Objects
 * HitDie
@@ -97,3 +97,4 @@ Wenn du in einem Proficient bist und einen Proficiency-Bonus von +3 hast dann ad
 
 # Aggregates
 * Character
+* Player
