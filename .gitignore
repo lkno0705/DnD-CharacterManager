@@ -21,3 +21,19 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# idea folder
+.idea
+
+# target folder
+target
+
+# Latex out files
+*.out
+*.aux
+*.bcf
+*.run.xml
+*.toc
+*.synctex.gz
+*.bbl
+*.blg
