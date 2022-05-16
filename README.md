@@ -68,3 +68,32 @@ Programmiersprache, das Testen und Überprüfen der Ergebnisse auf Richtigkeit u
 * Beispiel-Code direkt ins Dokument einbetten
 * Code-Strukturen als UML-Diagramm notieren
     * Detailgrad an die Aussage anpassen
+
+
+# how do skills work
+Du kann "proficient" in Skills werden. Du bekommt die Möglichkeit diese Skills zu wählen einmal über deine Klasse und zum anderen über deinen Background (Da steht dann sowas wie, wähle 3 Skills von dieser Liste)
+
+Wenn du "proficient" bist dann kommt der Proficiency Bonus auf den Skill drauf.
+Jeder Skill hat standardmäßig den Wert des zugehörigen Attribut-Modifier
+
+Also wenn du z. B. einen Dex-Bonus von +2 hast, dann hast du alles Skills die Dex benötigen mit 2.
+Wenn du in einem Proficient bist und einen Proficiency-Bonus von +3 hast dann addierst du die und bekommst eine +5
+
+
+# Domain Driven Design
+
+## Entities
+* Player
+* Class
+* Race
+* DeathSaves
+* Attributes
+* Inventory
+
+## Value Objects
+* HitDie
+* Attribute Bonus
+* Personality
+
+# Aggregates
+* Character
