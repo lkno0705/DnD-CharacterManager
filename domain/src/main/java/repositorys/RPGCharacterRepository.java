@@ -1,6 +1,6 @@
-package core.repositorys;
+package repositorys;
 
-import core.aggregates.RPGCharacter;
+import aggregates.RPGCharacter;
 
 import java.util.List;
 

@@ -1,9 +1,8 @@
-package core.aggregates;
+package aggregates;
 
-import core.entities.Currencys;
+import entities.Currencys;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 public class Inventory {
 

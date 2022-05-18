@@ -1,7 +1,7 @@
-package core.entities;
+package entities;
 
-import core.valueobjects.AgeRange;
-import core.valueobjects.CharacterSize;
+import valueobjects.AgeRange;
+import valueobjects.CharacterSize;
 
 import java.util.HashMap;
 import java.util.List;

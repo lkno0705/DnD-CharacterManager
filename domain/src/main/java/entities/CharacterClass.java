@@ -1,6 +1,6 @@
-package core.entities;
+package entities;
 
-import core.valueobjects.HitDie;
+import valueobjects.HitDie;
 
 import java.util.HashMap;
 import java.util.List;

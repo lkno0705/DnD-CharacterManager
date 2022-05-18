@@ -1,4 +1,4 @@
-package core.valueobjects;
+package valueobjects;
 
 import java.util.HashMap;
 import java.util.List;

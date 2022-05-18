@@ -1,9 +1,13 @@
-package core.aggregates;
+package aggregates;
 
 import core.entities.*;
-import core.factories.RPGCharacterFactory;
-import core.valueobjects.Background;
-import core.valueobjects.Player;
+import entities.CharacterRace;
+import entities.DeathSaves;
+import factories.RPGCharacterFactory;
+import valueobjects.Background;
+import valueobjects.Player;
+import entities.Attributes;
+import entities.CharacterClass;
 
 import java.util.UUID;
 

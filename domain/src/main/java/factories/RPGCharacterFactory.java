@@ -1,15 +1,15 @@
-package core.factories;
+package factories;
 
-import core.aggregates.Inventory;
-import core.aggregates.RPGCharacter;
-import core.entities.Attributes;
-import core.entities.CharacterClass;
-import core.entities.CharacterRace;
-import core.entities.DeathSaves;
-import core.valueobjects.AgeRange;
-import core.valueobjects.Background;
-import core.valueobjects.CharacterSize;
-import core.valueobjects.Player;
+import aggregates.Inventory;
+import aggregates.RPGCharacter;
+import entities.Attributes;
+import entities.CharacterClass;
+import entities.CharacterRace;
+import entities.DeathSaves;
+import valueobjects.AgeRange;
+import valueobjects.Background;
+import valueobjects.CharacterSize;
+import valueobjects.Player;
 
 import java.util.HashMap;
 import java.util.List;

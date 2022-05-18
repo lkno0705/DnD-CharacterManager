@@ -1,4 +1,4 @@
-package core.entities;
+package entities;
 
 import java.util.Objects;
 import java.util.UUID;
