@@ -13,20 +13,19 @@ public abstract class CharacterClass {
     private int level;
     private List<String> languages;
     private HashMap<String, Boolean> skillProficiencys;
-    private HashMap<String, Boolean> equipmentProficiencys;
     private HashMap<String, Boolean> savingThrowProficiencys;
-    private int HP;
+    private int currentHP;
+    private int maxHP;
     private List<HitDie> hitDice;
     private UUID id;
 
-    public CharacterClass(int proficiencyBonus, int level, List<String> languages, HashMap<String, Boolean> skillProficiencys, HashMap<String, Boolean> equipmentProficiencys, HashMap<String, Boolean> savingThrowProficiencys, int HP, List<HitDie> hitDice) {
+    public CharacterClass(int proficiencyBonus, int level, List<String> languages, HashMap<String, Boolean> skillProficiencys, HashMap<String, Boolean> equipmentProficiencys, HashMap<String, Boolean> savingThrowProficiencys, int maxHP, List<HitDie> hitDice) {
         this.proficiencyBonus = proficiencyBonus;
         this.level = level;
         this.languages = languages;
         this.skillProficiencys = skillProficiencys;
-        this.equipmentProficiencys = equipmentProficiencys;
         this.savingThrowProficiencys = savingThrowProficiencys;
-        this.HP = HP;
+        this.maxHP = maxHP;
         this.hitDice = hitDice;
         this.id = UUID.randomUUID();
     }
@@ -60,16 +59,12 @@ public abstract class CharacterClass {
         return skillProficiencys;
     }
 
-    public HashMap<String, Boolean> getEquipmentProficiencys() {
-        return equipmentProficiencys;
-    }
-
     public HashMap<String, Boolean> getSavingThrowProficiencys() {
         return savingThrowProficiencys;
     }
 
     public int getHP() {
-        return HP;
+        return currentHP;
     }
 
     public List<HitDie> getHitDice() {

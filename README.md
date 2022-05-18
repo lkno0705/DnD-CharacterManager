@@ -98,3 +98,45 @@ Wenn du in einem Proficient bist und einen Proficiency-Bonus von +3 hast dann ad
 # Aggregates
 * Character
 * Player
+
+# TO Implement:
+* Race: Humans
+* Class: Fighter
+
+# KISS
+* Da nur Fighter implementiert, keine Zauber etc und Weapon & Armor type ignored da fighter alles kann
+
+# Use Cases
+* Use Cases stellen methoden bereit, die für die realisierung des Use Cases anhand von Nutzer eingaben benötigt werden. Händeln das Model Update der Domaine entsprechend.
+
+* Get All dead -> From Repository
+* Gell All Alive -> From Repository
+* Create Character
+* Delete Character
+* Update Character
+    * Take Damage -> Instant death if |currentHP - damage| > maxHP else if currHP <= 0 then K.O -> Enters DeathSaves. else take damage
+    * Heal
+    * DeathSaves -> bleibt dauer offen bis geschafft oder failure -> Die oder healed -> Enter Heal
+    * Die -> Set dead move to Graveyard
+    * Add Item
+    * Remove Item
+    * Add Weapon
+    * Remove Weapon
+    * Add Armor
+    * Remove Armor
+    * Change Armor
+* Display Character
+* Rolls:
+    * Würfel wurf wird vom Spieler eingegeben
+    * ini
+    * Attack -> Weapon based -> 2 Rolls, hit Abfrage -> if yes roll Damage else return
+        * Crit Hit
+        * Botch
+    * Skill -> Select Skill, Roll D20 + Skill Bonus
+    * Saving Throw -> Wie bei Skill -> Berechnung der Boni siehe oben Skills
+
+# Factories Entwurfsmuster:
+* In der zu bauenden Klasse eine public static builder() methode -> returned neue Klassenspezifische Factory
+* Factory hat empty constructor
+* Factory benötigt alle zu setzen Klassenvariablen, über eingaben wie auch constructor
+

@@ -34,6 +34,26 @@ public class Currencys {
         return Objects.hash(id);
     }
 
+    public void setCP(int CP) {
+        this.CP = CP;
+    }
+
+    public void setSP(int SP) {
+        this.SP = SP;
+    }
+
+    public void setEP(int EP) {
+        this.EP = EP;
+    }
+
+    public void setGP(int GP) {
+        this.GP = GP;
+    }
+
+    public void setPP(int PP) {
+        this.PP = PP;
+    }
+
     public int getCP() {
         return CP;
     }

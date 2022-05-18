@@ -1,7 +1,7 @@
 package core.entities;
 
 import core.valueobjects.AgeRange;
-import core.valueobjects.AttributeBonus;
+import core.valueobjects.CharacterSize;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,26 +10,44 @@ import java.util.UUID;
 
 public abstract class CharacterRace {
 
-    private List<AttributeBonus> attributeBoni;
+    private HashMap<String, Integer> attributeBoni;
     private int speed;
     private List<String> languages;
-    private final AgeRange ageRange;
-    private final Character size;
-    private List<String> traits;
-    private HashMap<String, Boolean> equipmentProficiencies;
-    private CharacterRace subRace;
+    private AgeRange ageRange;
+    private CharacterSize size;
     private final UUID id;
 
-    public CharacterRace(List<AttributeBonus> attributeBoni, int speed, List<String> languages, AgeRange ageRange, Character size, List<String> traits, HashMap<String, Boolean> equipmentProficiencies, CharacterRace subRace) {
+    public CharacterRace() {
+        this.id = UUID.randomUUID();
+    }
+
+    public CharacterRace(HashMap<String, Integer> attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size) {
         this.attributeBoni = attributeBoni;
         this.speed = speed;
         this.languages = languages;
         this.ageRange = ageRange;
         this.size = size;
-        this.traits = traits;
-        this.equipmentProficiencies = equipmentProficiencies;
-        this.subRace = subRace;
         this.id = UUID.randomUUID();
+    }
+
+    public void setAttributeBoni(HashMap<String, Integer> attributeBoni) {
+        this.attributeBoni = attributeBoni;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setLanguages(List<String> languages) {
+        this.languages = languages;
+    }
+
+    public void setAgeRange(AgeRange ageRange) {
+        this.ageRange = ageRange;
+    }
+
+    public void setSize(CharacterSize size) {
+        this.size = size;
     }
 
     @Override
@@ -45,7 +63,11 @@ public abstract class CharacterRace {
         return Objects.hash(id);
     }
 
-    public List<AttributeBonus> getAttributeBoni() {
+    public CharacterSize getSize() {
+        return size;
+    }
+
+    public HashMap<String, Integer> getAttributeBoni() {
         return attributeBoni;
     }
 
@@ -59,22 +81,6 @@ public abstract class CharacterRace {
 
     public AgeRange getAgeRange() {
         return ageRange;
-    }
-
-    public Character getSize() {
-        return size;
-    }
-
-    public List<String> getTraits() {
-        return traits;
-    }
-
-    public HashMap<String, Boolean> getEquipmentProficiencies() {
-        return equipmentProficiencies;
-    }
-
-    public CharacterRace getSubRace() {
-        return subRace;
     }
 
     public UUID getId() {

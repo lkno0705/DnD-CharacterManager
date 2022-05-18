@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public final class HitDie {
 
+    //TODO: FOR ALL VALUE OBJECTS CHECK IF VALID ENTRYS
+
     final int dieType;
     final int amount;
 
