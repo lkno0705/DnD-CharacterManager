@@ -128,7 +128,7 @@ Wenn du in einem Proficient bist und einen Proficiency-Bonus von +3 hast dann ad
 * Display Character
 * Rolls:
     * Würfel wurf wird vom Spieler eingegeben
-    * ini
+    * ini -> Dexterity Check
     * Attack -> Weapon based -> 2 Rolls, hit Abfrage -> if yes roll Damage else return
         * Crit Hit
         * Botch
