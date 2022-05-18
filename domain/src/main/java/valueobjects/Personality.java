@@ -1,5 +1,7 @@
 package valueobjects;
 
+import exceptions.PersonalityException;
+
 import java.util.Arrays;
 
 public final class Personality {
@@ -9,11 +11,18 @@ public final class Personality {
     final String[] bond;
     final String[] flaw;
 
-    public Personality(String[] personalityTraits, String[] ideal, String[] bond, String[] flaw) {
-        this.personalityTraits = personalityTraits;
-        this.ideal = ideal;
-        this.bond = bond;
-        this.flaw = flaw;
+    public Personality(String[] personalityTraits, String[] ideal, String[] bond, String[] flaw) throws PersonalityException {
+        if(personalityTraits != null) this.personalityTraits = personalityTraits;
+        else throw new PersonalityException("Personality Traits can not be null");
+
+        if (ideal != null) this.ideal = ideal;
+        else throw new PersonalityException("Ideals can not be null");
+
+        if(bond != null) this.bond = bond;
+        else throw new PersonalityException("Bonds can not be null");
+
+        if (flaw != null) this.flaw = flaw;
+        else throw new PersonalityException("Flaws can not be null");
     }
 
     @Override

@@ -1,5 +1,7 @@
 package valueobjects;
 
+import exceptions.PlayerException;
+
 import java.util.Objects;
 
 public final class Player {
@@ -7,9 +9,12 @@ public final class Player {
     final String firstName;
     final String lastName;
 
-    public Player(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Player(String firstName, String lastName) throws PlayerException {
+        if (!firstName.equals("")) this.firstName = firstName;
+        else throw new PlayerException("Invalid first name");
+
+        if (!lastName.equals("")) this.lastName = lastName;
+        else throw new PlayerException("Invalid last name");
     }
 
     @Override

@@ -11,7 +11,7 @@
     <modules>
         <module>domain</module>
         <module>use-cases</module>
-        <module>external_interfaces</module>
+        <module>externalinterfaces</module>
         <module>interfaceadapters</module>
     </modules>
 

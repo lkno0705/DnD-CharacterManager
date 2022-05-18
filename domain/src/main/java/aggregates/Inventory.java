@@ -1,31 +1,39 @@
 package aggregates;
 
 import entities.Currencys;
+import valueobjects.Armor;
+import valueobjects.Weapon;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Inventory {
 
     private Currencys currencys;
     private HashMap<String, Integer> items;
-    /*
-    TODO: Add Entity Weapon, Add List of Weapons (mit fiktivem Limit von 4 wie auf Character Sheet)
-        & 1 Slot of Armor
-    TODO: Add method get Weapons, get Armor
-    Weapon:
-        * Namen
-        * DamageDie
-            DieType -> Welcher Würfel
-            Amount
-        * isFinesse -> Use Strength or Dexterity modifier for Attack Rolls & Damage Rolls
-    Armor:
-        * Name
-        * base Armor Class
-        * With Dex: Bool
-        * Max DexBonus
-        * Minimum Strength -> Wenn nicht erfüllt, dann geht nicht ins Inventar
-     */
+    private Weapon[] weapons = new Weapon[4];
+    private Armor armor;
 
-    public Inventory() {
+    public Inventory(Currencys currencys, HashMap<String, Integer> items, Weapon[] weapons, Armor armor) {
+        this.currencys = currencys;
+        this.items = items;
+        this.weapons = weapons;
+        this.armor = armor;
+    }
+
+    public Currencys getCurrencys() {
+        return currencys;
+    }
+
+    public HashMap<String, Integer> getItems() {
+        return items;
+    }
+
+    public Weapon[] getWeapons() {
+        return weapons;
+    }
+
+    public Armor getArmor() {
+        return armor;
     }
 }

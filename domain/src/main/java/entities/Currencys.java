@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.CurrencyException;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -12,12 +14,21 @@ public class Currencys {
     private int PP;
     private UUID id;
 
-    public Currencys(int CP, int SP, int EP, int GP, int PP) {
-        this.CP = CP;
-        this.SP = SP;
-        this.EP = EP;
-        this.GP = GP;
-        this.PP = PP;
+    public Currencys(int CP, int SP, int EP, int GP, int PP) throws CurrencyException {
+        if(CP > 0) this.CP = CP;
+        else throw new CurrencyException("Invalid CP: " + CP);
+
+        if(SP > 0) this.SP = SP;
+        else throw new CurrencyException("Invalid SP: " + SP);
+
+        if(EP > 0) this.EP = EP;
+        else throw new CurrencyException("Invalid EP: " + EP);
+
+        if(GP > 0) this.GP = GP;
+        else throw new CurrencyException("Invalid GP: " + GP);
+
+        if(PP > 0) this.PP = PP;
+        else throw new CurrencyException("Invalid PP: " + PP);
         this.id = UUID.randomUUID();
     }
 

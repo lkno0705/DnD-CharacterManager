@@ -1,13 +1,15 @@
 package valueobjects;
 
+import exceptions.CharacterSizeException;
+
 import java.util.Objects;
 
 public final class CharacterSize {
     final Character size;
 
     public CharacterSize(Character size) throws Exception {
-        if( size.equals('S') || size.equals('M') || size.equals('L')) throw new Exception();
-        this.size = size;
+        if( size.equals('S') || size.equals('M') || size.equals('L')) this.size = size;
+        else throw new CharacterSizeException("Invalid Character Size: " + size);
     }
 
     @Override

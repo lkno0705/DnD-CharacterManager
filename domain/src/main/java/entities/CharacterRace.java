@@ -1,36 +1,44 @@
 package entities;
 
+import exceptions.CharacterRaceException;
+import factories.CharacterRaceFactory;
+import factories.RPGCharacterFactory;
 import valueobjects.AgeRange;
+import valueobjects.AttributeBoni;
 import valueobjects.CharacterSize;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class CharacterRace {
+public class CharacterRace {
 
-    private HashMap<String, Integer> attributeBoni;
+    private AttributeBoni attributeBoni;
     private int speed;
     private List<String> languages;
-    private AgeRange ageRange;
+    private final AgeRange ageRange;
     private CharacterSize size;
     private final UUID id;
 
-    public CharacterRace() {
+    public CharacterRace(AttributeBoni attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size) throws CharacterRaceException {
+        if(attributeBoni != null) this.attributeBoni = attributeBoni;
+        else throw new CharacterRaceException("Attributeboni can not be null");
+
+        if(speed > 0) this.speed = speed;
+        else throw new CharacterRaceException("Invalid Speed: " + speed);
+
+        if(languages != null) this.languages = languages;
+        else throw new CharacterRaceException("Languages can not be null");
+
+        if(ageRange != null) this.ageRange = ageRange;
+        else throw new CharacterRaceException("Age range can not be null");
+
+        if(size != null) this.size = size;
+        else throw new CharacterRaceException("Character size can not be null");
         this.id = UUID.randomUUID();
     }
 
-    public CharacterRace(HashMap<String, Integer> attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size) {
-        this.attributeBoni = attributeBoni;
-        this.speed = speed;
-        this.languages = languages;
-        this.ageRange = ageRange;
-        this.size = size;
-        this.id = UUID.randomUUID();
-    }
-
-    public void setAttributeBoni(HashMap<String, Integer> attributeBoni) {
+    public void setAttributeBoni(AttributeBoni attributeBoni) {
         this.attributeBoni = attributeBoni;
     }
 
@@ -40,10 +48,6 @@ public abstract class CharacterRace {
 
     public void setLanguages(List<String> languages) {
         this.languages = languages;
-    }
-
-    public void setAgeRange(AgeRange ageRange) {
-        this.ageRange = ageRange;
     }
 
     public void setSize(CharacterSize size) {
@@ -67,7 +71,7 @@ public abstract class CharacterRace {
         return size;
     }
 
-    public HashMap<String, Integer> getAttributeBoni() {
+    public AttributeBoni getAttributeBoni() {
         return attributeBoni;
     }
 
@@ -85,5 +89,9 @@ public abstract class CharacterRace {
 
     public UUID getId() {
         return id;
+    }
+
+    public static CharacterRaceFactory builder(){
+        return new CharacterRaceFactory();
     }
 }

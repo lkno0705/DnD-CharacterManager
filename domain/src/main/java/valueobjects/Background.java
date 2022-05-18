@@ -1,23 +1,32 @@
 package valueobjects;
 
-import java.util.HashMap;
+import exceptions.BackgroundException;
+
 import java.util.List;
 import java.util.Objects;
 
 public final class Background {
 
     final Personality personality;
-    final HashMap<String, Boolean> skillProficiencies;
+    final SkillProficiencies skillProficiencies;
     final List<String> languages;
     final List<String> Equipment;
     final List<String> toolProficiencies;
 
-    public Background(Personality personality, HashMap<String, Boolean> skillProficiencies, List<String> languages, List<String> equipment, List<String> toolProficiencies) {
-        this.personality = personality;
+    public Background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, List<String> equipment, List<String> toolProficiencies) throws BackgroundException {
+        if (personality != null) this.personality = personality;
+        else throw new BackgroundException("personality can not be null");
+
         this.skillProficiencies = skillProficiencies;
-        this.languages = languages;
-        Equipment = equipment;
-        this.toolProficiencies = toolProficiencies;
+
+        if (languages != null) this.languages = languages;
+        else throw new BackgroundException("Languages can not be null");
+
+        if (equipment != null) Equipment = equipment;
+        else throw new BackgroundException("Equipment can not be null");
+
+        if (toolProficiencies != null) this.toolProficiencies = toolProficiencies;
+        else throw new BackgroundException("Tool Proficiencies can not be null");
     }
 
     @Override
