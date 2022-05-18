@@ -1,23 +1,25 @@
 package aggregates;
 
 import entities.Currencys;
+import exceptions.WeaponException;
+import factories.InventoryFactory;
 import valueobjects.Armor;
 import valueobjects.Weapon;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Inventory {
 
     private Currencys currencys;
-    private HashMap<String, Integer> items;
-    private Weapon[] weapons = new Weapon[4];
+    private HashMap<String, int> items;
+    private Weapon[] weapons;
     private Armor armor;
 
-    public Inventory(Currencys currencys, HashMap<String, Integer> items, Weapon[] weapons, Armor armor) {
+    public Inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws WeaponException {
         this.currencys = currencys;
         this.items = items;
-        this.weapons = weapons;
+        if(weapons.length < 5) this.weapons = weapons;
+        else throw new WeaponException("Invalid Amount of weapons");
         this.armor = armor;
     }
 
@@ -25,7 +27,7 @@ public class Inventory {
         return currencys;
     }
 
-    public HashMap<String, Integer> getItems() {
+    public HashMap<String, int> getItems() {
         return items;
     }
 
@@ -36,4 +38,6 @@ public class Inventory {
     public Armor getArmor() {
         return armor;
     }
+
+    public static InventoryFactory builder(){ return new InventoryFactory();}
 }

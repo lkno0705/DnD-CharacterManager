@@ -2,6 +2,7 @@ package aggregates;
 
 import entities.Attribute;
 import exceptions.AttributeException;
+import factories.AttributeFactory;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -121,4 +122,6 @@ public class Attributes {
     public int getCharismaMod() {
         return this.wisdom.getAttributeModifier();
     }
+
+    public static AttributeFactory builder(){ return new AttributeFactory();}
 }

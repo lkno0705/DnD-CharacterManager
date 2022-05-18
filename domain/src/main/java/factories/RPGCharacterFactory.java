@@ -4,8 +4,7 @@ import aggregates.Inventory;
 import aggregates.RPGCharacter;
 import aggregates.Attributes;
 import entities.*;
-import exceptions.PlayerException;
-import exceptions.RPGCharacterException;
+import exceptions.*;
 import valueobjects.*;
 
 import java.util.HashMap;
@@ -34,8 +33,14 @@ public class RPGCharacterFactory {
     }
 
     // Falls ich die Objekt Kreirung in der Factory zulassen will dann so:
-    public RPGCharacterFactory race(HashMap<String, Integer> attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size){
-        //TODO: create new race with race factory
+    public RPGCharacterFactory race(AttributeBoni attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size) throws AttributeBoniException, CharacterRaceException {
+        this.race = new CharacterRaceFactory()
+                .attributeBoni(attributeBoni)
+                .speed(speed)
+                .languages(languages)
+                .ageRange(ageRange)
+                .characterSize(size)
+                .build();
         return this;
     }
 
@@ -44,8 +49,16 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory characterClass(int proficiencyBonus, int level, List<String> languages, SkillProficiencies skillProficiencys, SavingThrowProficiencies savingThrowProficiencys, int constitutionModifier, List<HitDie> hitDice){
-        //TODO: create new class with class factory
+    public RPGCharacterFactory characterClass(int proficiencyBonus, int level, List<String> languages, SkillProficiencies skillProficiencys, SavingThrowProficiencies savingThrowProficiencys, int constitutionModifier, List<HitDie> hitDice) throws CharacterClassException {
+        this.characterClass = new CharacterClassFactory()
+                .proficiencyBonus(proficiencyBonus)
+                .level(level)
+                .languages(languages)
+                .skillProficiencies(skillProficiencys)
+                .savingThrowProficiencies(savingThrowProficiencys)
+                .constitutionModifier(constitutionModifier)
+                .hitDice(hitDice)
+                .build();
         return this;
     }
 
@@ -54,8 +67,14 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, List<String> equipment, List<String> toolProficiencies){
-        //TODO: build background with background factory
+    public RPGCharacterFactory background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, int> equipment, List<String> toolProficiencies) throws BackgroundException {
+        this.background = new BackgroundFactory()
+                .personality(personality)
+                .skillProficiencies(skillProficiencies)
+                .languages(languages)
+                .equipment(equipment)
+                .toolProficiencies(toolProficiencies)
+                .build();
         return this;
     }
 
@@ -64,8 +83,13 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, Integer> items, Weapon[] weapons, Armor armor){
-        //TODO: build Inventory with inventory Factory
+    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws WeaponException {
+        this.inventory = new InventoryFactory()
+                .currencys(currencys)
+                .items(items)
+                .weapons(weapons)
+                .armor(armor)
+                .build();
         return this;
     }
 
@@ -79,8 +103,27 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory attributes(Attribute strength, Attribute dexterity, Attribute constitution, Attribute intelligence, Attribute wisdom, Attribute charisma){
-        //TODO: Build Attributes with Attributes Factory
+    public RPGCharacterFactory attributes(Attribute strength, Attribute dexterity, Attribute constitution, Attribute intelligence, Attribute wisdom, Attribute charisma) throws AttributeException {
+        this.attributes = new AttributeFactory()
+                .strength(strength)
+                .dexterity(dexterity)
+                .constitution(constitution)
+                .intelligence(intelligence)
+                .wisdom(wisdom)
+                .charisma(charisma)
+                .build();
+        return this;
+    }
+
+    public RPGCharacterFactory attributes(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) throws AttributeException {
+        this.attributes = new AttributeFactory()
+                .strength(strength)
+                .dexterity(dexterity)
+                .constitution(constitution)
+                .intelligence(intelligence)
+                .wisdom(wisdom)
+                .charisma(charisma)
+                .build();
         return this;
     }
 

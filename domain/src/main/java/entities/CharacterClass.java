@@ -1,6 +1,7 @@
 package entities;
 
 import exceptions.CharacterClassException;
+import factories.CharacterClassFactory;
 import valueobjects.HitDie;
 import valueobjects.SavingThrowProficiencies;
 import valueobjects.SkillProficiencies;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class CharacterClass {
+public class CharacterClass {
 
     private int proficiencyBonus;
     private int level;
@@ -41,6 +42,7 @@ public abstract class CharacterClass {
         else throw new CharacterClassException("Hit Dice can not be null");
 
         this.maxHP = calculateMaxHP(constitutionModifier);
+        this.currentHP = 0;
         this.id = UUID.randomUUID();
     }
 
@@ -98,4 +100,6 @@ public abstract class CharacterClass {
     public UUID getId() {
         return id;
     }
+
+    public static CharacterClassFactory builder() { return new CharacterClassFactory();}
 }
