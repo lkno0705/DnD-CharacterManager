@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>domain</module>
-        <module>use-cases</module>
-        <module>externalinterfaces</module>
-        <module>interfaceadapters</module>
+        <module>3-dnd-charactermanager-domain</module>
+        <module>2-dnd-charactermanager-application</module>
+        <module>1-dnd-charactermanager-adapters</module>
+        <module>0-dnd-charactermanager-plugins</module>
     </modules>
 
     <properties>

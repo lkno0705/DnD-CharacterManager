@@ -17,10 +17,6 @@ class CharacterServiceTest {
     }
 
     @Test
-    void updateCharacter() {
-    }
-
-    @Test
     void displayCharacter() {
     }
 
