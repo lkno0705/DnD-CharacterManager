@@ -42,4 +42,12 @@ public final class HitDie {
     public int hashCode() {
         return Objects.hash(dieType, amount);
     }
+
+    @Override
+    public String toString() {
+        return "HitDie{" +
+                "dieType=" + dieType +
+                ", amount=" + amount +
+                '}';
+    }
 }

@@ -47,6 +47,7 @@ public final class Fighter {
                 .hitDice(Arrays.asList(
                         new HitDie(10, 1)
                 ))
+                .name("Fighter")
                 .build();
     }
 }

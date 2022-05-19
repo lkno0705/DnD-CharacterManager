@@ -18,9 +18,10 @@ public class CharacterRace {
     private List<String> languages;
     private final AgeRange ageRange;
     private CharacterSize size;
+    private final String raceName;
     private final UUID id;
 
-    public CharacterRace(AttributeBoni attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size) throws CharacterRaceException {
+    public CharacterRace(AttributeBoni attributeBoni, int speed, List<String> languages, AgeRange ageRange, CharacterSize size, String raceName) throws CharacterRaceException {
         if(attributeBoni != null) this.attributeBoni = attributeBoni;
         else throw new CharacterRaceException("Attributeboni can not be null");
 
@@ -35,6 +36,9 @@ public class CharacterRace {
 
         if(size != null) this.size = size;
         else throw new CharacterRaceException("Character size can not be null");
+
+        if(!raceName.equals("")) this.raceName = raceName;
+        else throw new CharacterRaceException("RaceName can not be null");
         this.id = UUID.randomUUID();
     }
 
@@ -85,6 +89,10 @@ public class CharacterRace {
 
     public AgeRange getAgeRange() {
         return ageRange;
+    }
+
+    public String getRaceName() {
+        return raceName;
     }
 
     public UUID getId() {

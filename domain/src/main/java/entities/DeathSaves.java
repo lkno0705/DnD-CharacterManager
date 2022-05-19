@@ -25,11 +25,13 @@ public class DeathSaves {
     }
 
     public void setSuccess(){
+        if(successPointer > 2) return;
         successes[successPointer] = true;
         successPointer++;
     }
 
     public void setFailure(){
+        if(failurePointer > 2) return;
         failures[failurePointer] = true;
         failurePointer++;
     }
@@ -46,7 +48,11 @@ public class DeathSaves {
                 .count();
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "DeathSaves{" +
+                "successes=" + Arrays.toString(successes) +
+                ", failures=" + Arrays.toString(failures) +
+                '}';
+    }
 }

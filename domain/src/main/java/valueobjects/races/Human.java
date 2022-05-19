@@ -24,6 +24,7 @@ public final class Human {
                 .languages(Arrays.asList("Common"))
                 .ageRange(1,100)
                 .characterSize('M')
+                .raceName("Human")
                 .build();
     }
 }

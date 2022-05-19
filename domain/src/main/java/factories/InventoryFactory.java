@@ -3,6 +3,7 @@ package factories;
 import aggregates.Inventory;
 import entities.Currencys;
 import exceptions.CurrencyException;
+import exceptions.InventoryException;
 import exceptions.WeaponException;
 import valueobjects.Armor;
 import valueobjects.Weapon;
@@ -49,7 +50,7 @@ public class InventoryFactory {
         return this;
     }
 
-    public Inventory build() throws WeaponException {
+    public Inventory build() throws InventoryException {
         return new Inventory(currencys, items, weapons, armor);
     }
 

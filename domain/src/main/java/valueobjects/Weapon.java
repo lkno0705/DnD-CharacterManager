@@ -41,4 +41,16 @@ public final class Weapon {
     public int hashCode() {
         return Objects.hash(name, damageDie, isFinesse);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public HitDie getDamageDie() {
+        return damageDie;
+    }
+
+    public boolean isFinesse() {
+        return isFinesse;
+    }
 }

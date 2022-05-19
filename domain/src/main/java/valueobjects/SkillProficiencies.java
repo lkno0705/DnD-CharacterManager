@@ -50,4 +50,8 @@ public final class SkillProficiencies {
     public int hashCode() {
         return Objects.hash(skillProficiencies);
     }
+
+    public HashMap<String, boolean> getSkillProficiencies() {
+        return skillProficiencies;
+    }
 }

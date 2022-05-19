@@ -17,11 +17,17 @@ public class BackgroundFactory {
     private List<String> languages;
     private HashMap<String, int> equipment;
     private List<String> toolProficiencies;
+    private String name;
 
     public BackgroundFactory(){}
 
     public BackgroundFactory personality(Personality personality){
         this.personality = personality;
+        return this;
+    }
+
+    public BackgroundFactory name(String name){
+        this.name = name;
         return this;
     }
 
@@ -56,6 +62,6 @@ public class BackgroundFactory {
     }
 
     public Background build() throws BackgroundException {
-        return new Background(personality, skillProficiencies, languages, equipment, toolProficiencies);
+        return new Background(personality, skillProficiencies, languages, equipment, toolProficiencies, name);
     }
 }

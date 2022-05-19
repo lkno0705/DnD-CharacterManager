@@ -13,9 +13,10 @@ public final class Background {
     final SkillProficiencies skillProficiencies;
     final List<String> languages;
     final HashMap<String, int> equipment;
+    final String name;
     final List<String> toolProficiencies;
 
-    public Background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, int> equipment, List<String> toolProficiencies) throws BackgroundException {
+    public Background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, int> equipment, List<String> toolProficiencies, String name) throws BackgroundException {
         if (personality != null) this.personality = personality;
         else throw new BackgroundException("personality can not be null");
 
@@ -29,6 +30,9 @@ public final class Background {
 
         if (toolProficiencies != null) this.toolProficiencies = toolProficiencies;
         else throw new BackgroundException("Tool Proficiencies can not be null");
+
+        if(!name.equals("")) this.name = name;
+        else throw new BackgroundException("Name can not be null");
     }
 
     @Override
@@ -44,5 +48,30 @@ public final class Background {
         return Objects.hash(personality, skillProficiencies, languages, equipment, toolProficiencies);
     }
 
+    public Personality getPersonality() {
+        return personality;
+    }
+
+    public SkillProficiencies getSkillProficiencies() {
+        return skillProficiencies;
+    }
+
+    public List<String> getLanguages() {
+        return languages;
+    }
+
+    public HashMap<String, int> getEquipment() {
+        return equipment;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getToolProficiencies() {
+        return toolProficiencies;
+    }
+
     public static BackgroundFactory builder(){ return new BackgroundFactory();}
+
 }

@@ -24,4 +24,9 @@ public final class CharacterSize {
     public int hashCode() {
         return Objects.hash(size);
     }
+
+    @Override
+    public String toString() {
+        return size.toString();
+    }
 }

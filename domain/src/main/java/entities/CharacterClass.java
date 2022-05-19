@@ -20,9 +20,10 @@ public class CharacterClass {
     private int currentHP;
     private int maxHP;
     private List<HitDie> hitDice;
+    private final String name;
     private UUID id;
 
-    public CharacterClass(int proficiencyBonus, int level, List<String> languages, SkillProficiencies skillProficiencys, SavingThrowProficiencies savingThrowProficiencys, int constitutionModifier, List<HitDie> hitDice) throws CharacterClassException {
+    public CharacterClass(int proficiencyBonus, int level, List<String> languages, SkillProficiencies skillProficiencys, SavingThrowProficiencies savingThrowProficiencys, int constitutionModifier, List<HitDie> hitDice, String name) throws CharacterClassException {
         if (proficiencyBonus > 0) this.proficiencyBonus = proficiencyBonus;
         else throw new CharacterClassException("Invalid proficiency Bonus: " + proficiencyBonus);
 
@@ -40,6 +41,9 @@ public class CharacterClass {
 
         if(hitDice != null) this.hitDice = hitDice;
         else throw new CharacterClassException("Hit Dice can not be null");
+
+        if(!name.equals("")) this.name = name;
+        else throw new CharacterClassException("Name can not be null");
 
         this.maxHP = calculateMaxHP(constitutionModifier);
         this.currentHP = 0;
@@ -97,8 +101,37 @@ public class CharacterClass {
         return hitDice;
     }
 
+    public int getCurrentHP() {
+        return currentHP;
+    }
+
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public UUID getId() {
         return id;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setLanguages(List<String> languages) {
+        this.languages = languages;
+    }
+
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
+    }
+
+    public void setHitDice(List<HitDie> hitDice, int constMod) throws CharacterClassException {
+        this.hitDice = hitDice;
+        this.maxHP = calculateMaxHP(constMod);
     }
 
     public static CharacterClassFactory builder() { return new CharacterClassFactory();}

@@ -41,4 +41,14 @@ public final class Personality {
         result = 31 * result + Arrays.hashCode(flaw);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Personality{" +
+                "personalityTraits=" + Arrays.toString(personalityTraits) +
+                ", ideal=" + Arrays.toString(ideal) +
+                ", bond=" + Arrays.toString(bond) +
+                ", flaw=" + Arrays.toString(flaw) +
+                '}';
+    }
 }

@@ -83,7 +83,7 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws WeaponException {
+    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws InventoryException {
         this.inventory = new InventoryFactory()
                 .currencys(currencys)
                 .items(items)

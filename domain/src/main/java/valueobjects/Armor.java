@@ -37,6 +37,26 @@ public final class Armor {
         else throw new ArmorException("Invalid minimum Strength: " + minimumStrength);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getBaseAC() {
+        return baseAC;
+    }
+
+    public boolean isWithDex() {
+        return withDex;
+    }
+
+    public int getMaxDexBonus() {
+        return maxDexBonus;
+    }
+
+    public int getMinimumStrength() {
+        return minimumStrength;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,5 +68,16 @@ public final class Armor {
     @Override
     public int hashCode() {
         return Objects.hash(name, baseAC, withDex, maxDexBonus, minimumStrength);
+    }
+
+    @Override
+    public String toString() {
+        return "Armor{" +
+                "name='" + name + '\'' +
+                ", baseAC=" + baseAC +
+                ", withDex=" + withDex +
+                ", maxDexBonus=" + maxDexBonus +
+                ", minimumStrength=" + minimumStrength +
+                '}';
     }
 }

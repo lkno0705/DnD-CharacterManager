@@ -18,11 +18,17 @@ public class CharacterRaceFactory {
     private List<String> languages;
     private AgeRange ageRange;
     private CharacterSize characterSize;
+    private String raceName;
 
     public CharacterRaceFactory() {}
 
     public CharacterRaceFactory attributeBoni(AttributeBoni attributeBoni){
         this.attributeBoni = attributeBoni;
+        return this;
+    }
+
+    public CharacterRaceFactory raceName(String raceName){
+        this.raceName = raceName;
         return this;
     }
 
@@ -62,6 +68,6 @@ public class CharacterRaceFactory {
     }
 
     public CharacterRace build() throws CharacterRaceException {
-        return new CharacterRace(attributeBoni, speed, languages, ageRange, characterSize);
+        return new CharacterRace(attributeBoni, speed, languages, ageRange, characterSize, raceName);
     }
 }

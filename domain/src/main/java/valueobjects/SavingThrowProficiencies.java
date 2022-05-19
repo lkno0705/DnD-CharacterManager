@@ -32,4 +32,8 @@ public final class SavingThrowProficiencies {
     public int hashCode() {
         return Objects.hash(savingThrowProficiencies);
     }
+
+    public HashMap<String, boolean> getSavingThrowProficiencies() {
+        return savingThrowProficiencies;
+    }
 }

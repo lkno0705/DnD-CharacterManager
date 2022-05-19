@@ -19,6 +19,7 @@ public class CharacterClassFactory {
     private SkillProficiencies skillProficiencies;
     private SavingThrowProficiencies savingThrowProficiencys;
     private int constitutionModifier;
+    private String name;
     private List<HitDie> hitDice;
 
     public CharacterClassFactory(){}
@@ -68,8 +69,13 @@ public class CharacterClassFactory {
         return this;
     }
 
+    public CharacterClassFactory name(String name){
+        this.name = name;
+        return this;
+    }
+
     public CharacterClass build() throws CharacterClassException {
-        return new CharacterClass(proficiencyBonus, level, languages, skillProficiencies, savingThrowProficiencys, constitutionModifier, hitDice);
+        return new CharacterClass(proficiencyBonus, level, languages, skillProficiencies, savingThrowProficiencys, constitutionModifier, hitDice, name);
     }
 
 }

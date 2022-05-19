@@ -34,4 +34,11 @@ public final class AttributeBoni {
     public int hashCode() {
         return Objects.hash(attributeBoni);
     }
+
+    @Override
+    public String toString() {
+        return "AttributeBoni{\n" +
+                "attributeBoni=" + attributeBoni.toString() +
+                "\n}";
+    }
 }

@@ -29,4 +29,12 @@ public final class Player {
     public int hashCode() {
         return Objects.hash(firstName, lastName);
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 }

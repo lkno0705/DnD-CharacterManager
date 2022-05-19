@@ -37,4 +37,13 @@ public final class AgeRange {
     public int getMaximumAge() {
         return maximumAge;
     }
+
+    @Override
+    public String toString() {
+        return "AgeRange{\n" +
+                "minimumAge=" + minimumAge +
+                ",\n maximumAge=" + maximumAge +
+                '}';
+
+    }
 }
