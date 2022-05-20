@@ -20,6 +20,7 @@ class DiceRollServiceTest {
     void rollInitiative() {
     }
 
+    // Mock Weapon
     @Test
     void attack() {
     }

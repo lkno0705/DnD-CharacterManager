@@ -122,7 +122,7 @@ public class RPGCharacter {
 
     public HashMap<String, Integer> getSavingThrows() {
         HashMap<String, Boolean> savingThrowProficiencies = this.characterClass.getSavingThrowProficiencys().getSavingThrowProficiencies();
-        return new HashMap<String, Integer>() {{
+        return new HashMap<>() {{
             put("Strength", savingThrowProficiencies.get("Strength") ? attributes.getStrengthMod() + characterClass.getProficiencyBonus() : attributes.getStrengthMod());
             put("Dexterity", savingThrowProficiencies.get("Dexterity") ? attributes.getDexMod() + characterClass.getProficiencyBonus() : attributes.getDexMod());
             put("Constitution", savingThrowProficiencies.get("Constitution") ? attributes.getConstMod() + characterClass.getProficiencyBonus() : attributes.getConstMod());
@@ -137,11 +137,11 @@ public class RPGCharacter {
     public HashMap<String, Integer> getSkills() {
         HashMap<String, Boolean> classSkillProficiencies = this.characterClass.getSkillProficiencys().getSkillProficiencies();
         HashMap<String, Boolean> backgroundSkillProficiencies = this.background.getSkillProficiencies().getSkillProficiencies();
-        HashMap<String, Boolean> skillProficiencies = new HashMap<String, Boolean>() {{
+        HashMap<String, Boolean> skillProficiencies = new HashMap<>() {{
             putAll(classSkillProficiencies);
             putAll(backgroundSkillProficiencies);
         }};
-        return new HashMap<String, Integer>() {{
+        return new HashMap<>() {{
             put("Acrobatics", skillProficiencies.get("Acrobatics") ? attributes.getDexMod() + characterClass.getProficiencyBonus() : attributes.getDexMod());
             put("AnimalHandling", skillProficiencies.get("AnimalHandling") ? attributes.getWisdomMod() + characterClass.getProficiencyBonus() : attributes.getWisdomMod());
             put("Arcana", skillProficiencies.get("Arcana") ? attributes.getIntMod() + characterClass.getProficiencyBonus() : attributes.getIntMod());

@@ -59,8 +59,8 @@ public class CharacterService {
                     .append(weapon.getDamageDie().getDieType())
                     .append(",")
                     .append(weapon.getDamageDie().getAmount())
-                    .append(weapon.isFinesse() ? "finesse" : "")
-                    .append("\n        ");
+                    .append(weapon.isFinesse() ? ",finesse" : "")
+                    .append(")\n        ");
         }
 
         return "Character: " + this.character.getName() +
@@ -102,7 +102,6 @@ public class CharacterService {
                 "\n    SP" + this.character.getInventory().getCurrencys().getSP() +
                 "\n    EP" + this.character.getInventory().getCurrencys().getEP() +
                 "\n    GP" + this.character.getInventory().getCurrencys().getGP() +
-                "\n    PP" + this.character.getInventory().getCurrencys().getPP() +
                 "\n    PP" + this.character.getInventory().getCurrencys().getPP() +
                 "\n    Items:" + "\n        " + displayHashmap(this.character.getInventory().getItems()) +
                 "\n    Weapons:" + "\n        " + weapons +
