@@ -20,7 +20,7 @@ public final class Fighter {
                 .level(1)
                 .languages(Arrays.asList("Common"))
                 .skillProficiencies(
-                        new HashMap<String, boolean>(){{
+                        new HashMap<>() {{
                             put("Acrobatics", true);
                             put("AnimalHandling", true);
                             put("Arcana", false);
@@ -34,7 +34,7 @@ public final class Fighter {
                         }}
                 )
                 .savingThrowProficiencies(
-                        new HashMap<String, boolean>(){{
+                        new HashMap<>() {{
                             put("Strength", true);
                             put("Dexterity", false);
                             put("Constitution", true);

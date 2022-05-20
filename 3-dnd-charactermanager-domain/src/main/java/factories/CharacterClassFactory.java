@@ -44,7 +44,7 @@ public class CharacterClassFactory {
         return this;
     }
 
-    public CharacterClassFactory skillProficiencies(HashMap<String, boolean> skillProficiencies) throws SkillProficiencyException {
+    public CharacterClassFactory skillProficiencies(HashMap<String, Boolean> skillProficiencies) throws SkillProficiencyException {
         this.skillProficiencies = new SkillProficiencies(skillProficiencies);
         return this;
     }
@@ -54,7 +54,7 @@ public class CharacterClassFactory {
         return this;
     }
 
-    public CharacterClassFactory savingThrowProficiencies(HashMap<String, boolean> savingThrowProficiencies) throws SavingThrowException {
+    public CharacterClassFactory savingThrowProficiencies(HashMap<String, Boolean> savingThrowProficiencies) throws SavingThrowException {
         this.savingThrowProficiencys = new SavingThrowProficiencies(savingThrowProficiencies);
         return this;
     }

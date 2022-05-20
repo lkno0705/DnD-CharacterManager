@@ -14,7 +14,7 @@ import java.util.List;
 public class InventoryFactory {
 
     private Currencys currencys;
-    private HashMap<String, int> items;
+    private HashMap<String, Integer> items;
     private Weapon[] weapons;
     private Armor armor;
 
@@ -30,7 +30,7 @@ public class InventoryFactory {
         return this;
     }
 
-    public InventoryFactory items(HashMap<String, int> items){
+    public InventoryFactory items(HashMap<String, Integer> items){
         this.items = items;
         return this;
     }

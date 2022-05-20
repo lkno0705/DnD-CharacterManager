@@ -7,14 +7,14 @@ import java.util.*;
 
 public final class SavingThrowProficiencies {
 
-    final HashMap<String, boolean> savingThrowProficiencies;
+    final HashMap<String, Boolean> savingThrowProficiencies;
 
-    public SavingThrowProficiencies(HashMap<String, boolean> savingThrowProficiencies) throws SavingThrowException {
+    public SavingThrowProficiencies(HashMap<String, Boolean> savingThrowProficiencies) throws SavingThrowException {
         if (isValid(savingThrowProficiencies)) this.savingThrowProficiencies = savingThrowProficiencies;
         else throw new SavingThrowException("Invalid SkillProficiencies");
     }
 
-    private boolean isValid(HashMap<String, boolean> savingThrowProficiencys){
+    private boolean isValid(HashMap<String, Boolean> savingThrowProficiencys){
         final Set<String> allowedSavingThrowProficiencies = new HashSet<>(Arrays.asList(Attribute.validAttributeNames));
         Set<String> proficiencieKeys = savingThrowProficiencys.keySet();
         return (allowedSavingThrowProficiencies.containsAll(proficiencieKeys) && proficiencieKeys.containsAll(allowedSavingThrowProficiencies));
@@ -33,7 +33,7 @@ public final class SavingThrowProficiencies {
         return Objects.hash(savingThrowProficiencies);
     }
 
-    public HashMap<String, boolean> getSavingThrowProficiencies() {
+    public HashMap<String, Boolean> getSavingThrowProficiencies() {
         return savingThrowProficiencies;
     }
 }

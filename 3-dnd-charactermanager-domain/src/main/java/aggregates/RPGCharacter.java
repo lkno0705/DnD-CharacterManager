@@ -120,9 +120,9 @@ public class RPGCharacter {
         return age;
     }
 
-    public HashMap<String, int> getSavingThrows() {
-        HashMap<String, boolean> savingThrowProficiencies = this.characterClass.getSavingThrowProficiencys().getSavingThrowProficiencies();
-        return new HashMap<String, int>() {{
+    public HashMap<String, Integer> getSavingThrows() {
+        HashMap<String, Boolean> savingThrowProficiencies = this.characterClass.getSavingThrowProficiencys().getSavingThrowProficiencies();
+        return new HashMap<String, Integer>() {{
             put("Strength", savingThrowProficiencies.get("Strength") ? attributes.getStrengthMod() + characterClass.getProficiencyBonus() : attributes.getStrengthMod());
             put("Dexterity", savingThrowProficiencies.get("Dexterity") ? attributes.getDexMod() + characterClass.getProficiencyBonus() : attributes.getDexMod());
             put("Constitution", savingThrowProficiencies.get("Constitution") ? attributes.getConstMod() + characterClass.getProficiencyBonus() : attributes.getConstMod());
@@ -134,14 +134,14 @@ public class RPGCharacter {
     }
 
     //Dies ist hier für Daniel Burgers entertainment :3
-    public HashMap<String, int> getSkills() {
-        HashMap<String, boolean> classSkillProficiencies = this.characterClass.getSkillProficiencys().getSkillProficiencies();
-        HashMap<String, boolean> backgroundSkillProficiencies = this.background.getSkillProficiencies().getSkillProficiencies();
-        HashMap<String, boolean> skillProficiencies = new HashMap<String, boolean>() {{
+    public HashMap<String, Integer> getSkills() {
+        HashMap<String, Boolean> classSkillProficiencies = this.characterClass.getSkillProficiencys().getSkillProficiencies();
+        HashMap<String, Boolean> backgroundSkillProficiencies = this.background.getSkillProficiencies().getSkillProficiencies();
+        HashMap<String, Boolean> skillProficiencies = new HashMap<String, Boolean>() {{
             putAll(classSkillProficiencies);
             putAll(backgroundSkillProficiencies);
         }};
-        return new HashMap<String, int>() {{
+        return new HashMap<String, Integer>() {{
             put("Acrobatics", skillProficiencies.get("Acrobatics") ? attributes.getDexMod() + characterClass.getProficiencyBonus() : attributes.getDexMod());
             put("AnimalHandling", skillProficiencies.get("AnimalHandling") ? attributes.getWisdomMod() + characterClass.getProficiencyBonus() : attributes.getWisdomMod());
             put("Arcana", skillProficiencies.get("Arcana") ? attributes.getIntMod() + characterClass.getProficiencyBonus() : attributes.getIntMod());

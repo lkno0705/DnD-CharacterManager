@@ -11,7 +11,7 @@ public final class Human {
     public static CharacterRace build() throws Exception {
         return new CharacterRaceFactory()
                 .attributeBoni(
-                        new HashMap<String, int>() {{
+                        new HashMap<String, Integer>() {{
                             put("Strength", 1);
                             put("Dexterity", 1);
                             put("Constitution", 1);

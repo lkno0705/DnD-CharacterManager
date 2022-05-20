@@ -12,11 +12,11 @@ public final class Background {
     final Personality personality;
     final SkillProficiencies skillProficiencies;
     final List<String> languages;
-    final HashMap<String, int> equipment;
+    final HashMap<String, Integer> equipment;
     final String name;
     final List<String> toolProficiencies;
 
-    public Background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, int> equipment, List<String> toolProficiencies, String name) throws BackgroundException {
+    public Background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, Integer> equipment, List<String> toolProficiencies, String name) throws BackgroundException {
         if (personality != null) this.personality = personality;
         else throw new BackgroundException("personality can not be null");
 
@@ -60,7 +60,7 @@ public final class Background {
         return languages;
     }
 
-    public HashMap<String, int> getEquipment() {
+    public HashMap<String, Integer> getEquipment() {
         return equipment;
     }
 

@@ -67,7 +67,7 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, int> equipment, List<String> toolProficiencies) throws BackgroundException {
+    public RPGCharacterFactory background(Personality personality, SkillProficiencies skillProficiencies, List<String> languages, HashMap<String, Integer> equipment, List<String> toolProficiencies) throws BackgroundException {
         this.background = new BackgroundFactory()
                 .personality(personality)
                 .skillProficiencies(skillProficiencies)
@@ -83,7 +83,7 @@ public class RPGCharacterFactory {
         return this;
     }
 
-    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws InventoryException {
+    public RPGCharacterFactory inventory(Currencys currencys, HashMap<String, Integer> items, Weapon[] weapons, Armor armor) throws InventoryException {
         this.inventory = new InventoryFactory()
                 .currencys(currencys)
                 .items(items)

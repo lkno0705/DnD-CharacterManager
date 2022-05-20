@@ -7,14 +7,14 @@ import java.util.*;
 
 public final class AttributeBoni {
 
-    final HashMap<String, int> attributeBoni;
+    final HashMap<String, Integer> attributeBoni;
 
-    public AttributeBoni(HashMap<String, int> attributeBoni) throws AttributeBoniException {
+    public AttributeBoni(HashMap<String, Integer> attributeBoni) throws AttributeBoniException {
         if (isValid(attributeBoni)) this.attributeBoni = attributeBoni;
         else throw new AttributeBoniException("Invalid AttributeBoni");
     }
 
-    private boolean isValid(HashMap<String, int> attributeBoni){
+    private boolean isValid(HashMap<String, Integer> attributeBoni){
         final Set<String> allowedAttributeBoni = new HashSet<>(Arrays.asList(
                 Attribute.validAttributeNames
         ));

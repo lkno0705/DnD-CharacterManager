@@ -36,7 +36,7 @@ public class CharacterService {
         this.rpgCharacterRepositoryService.updateCharacter(rpgCharacter);
     }
 
-    private String displayHashmap(HashMap<String, int> hashMap) {
+    private String displayHashmap(HashMap<String, Integer> hashMap) {
         StringBuilder builder = new StringBuilder();
         for (String key : hashMap.keySet()) {
             builder.append(key).append(": ").append(hashMap.get(key)).append("\n    ");

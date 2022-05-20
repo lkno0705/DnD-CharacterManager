@@ -32,7 +32,7 @@ public class CharacterRaceFactory {
         return this;
     }
 
-    public CharacterRaceFactory attributeBoni(HashMap<String, int> attributeBoni) throws AttributeBoniException {
+    public CharacterRaceFactory attributeBoni(HashMap<String, Integer> attributeBoni) throws AttributeBoniException {
         this.attributeBoni = new AttributeBoni(attributeBoni);
         return this;
     }

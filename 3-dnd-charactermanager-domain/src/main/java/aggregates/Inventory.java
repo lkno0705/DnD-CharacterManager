@@ -14,11 +14,11 @@ import java.util.Objects;
 public class Inventory {
 
     private Currencys currencys;
-    private HashMap<String, int> items;
+    private HashMap<String, Integer> items;
     private Weapon[] weapons;
     private Armor armor;
 
-    public Inventory(Currencys currencys, HashMap<String, int> items, Weapon[] weapons, Armor armor) throws InventoryException {
+    public Inventory(Currencys currencys, HashMap<String, Integer> items, Weapon[] weapons, Armor armor) throws InventoryException {
         this.currencys = currencys;
         this.items = items;
         if (weapons.length < 5) this.weapons = weapons;
@@ -30,7 +30,7 @@ public class Inventory {
         return currencys;
     }
 
-    public HashMap<String, int> getItems() {
+    public HashMap<String, Integer> getItems() {
         return items;
     }
 

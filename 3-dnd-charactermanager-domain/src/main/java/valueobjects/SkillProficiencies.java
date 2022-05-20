@@ -6,14 +6,14 @@ import java.util.*;
 
 public final class SkillProficiencies {
 
-    final HashMap<String, boolean> skillProficiencies;
+    final HashMap<String, Boolean> skillProficiencies;
 
-    public SkillProficiencies(HashMap<String, boolean> skillProficiencies) throws SkillProficiencyException {
+    public SkillProficiencies(HashMap<String, Boolean> skillProficiencies) throws SkillProficiencyException {
         if (isValid(skillProficiencies)) this.skillProficiencies = skillProficiencies;
         else throw new SkillProficiencyException("Invalid SkillProficiencies");
     }
 
-    private boolean isValid(HashMap<String, boolean> skillProficiencies){
+    private boolean isValid(HashMap<String, Boolean> skillProficiencies){
         final Set<String> allowedSkillProficiencies = new HashSet<>(Arrays.asList(
                 "Acrobatics",
                 "AnimalHandling",
@@ -51,7 +51,7 @@ public final class SkillProficiencies {
         return Objects.hash(skillProficiencies);
     }
 
-    public HashMap<String, boolean> getSkillProficiencies() {
+    public HashMap<String, Boolean> getSkillProficiencies() {
         return skillProficiencies;
     }
 }

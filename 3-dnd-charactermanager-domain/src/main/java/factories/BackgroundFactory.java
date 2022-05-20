@@ -15,7 +15,7 @@ public class BackgroundFactory {
     private Personality personality;
     private SkillProficiencies skillProficiencies;
     private List<String> languages;
-    private HashMap<String, int> equipment;
+    private HashMap<String, Integer> equipment;
     private List<String> toolProficiencies;
     private String name;
 
@@ -41,7 +41,7 @@ public class BackgroundFactory {
         return this;
     }
 
-    public BackgroundFactory skillProficiencies(HashMap<String, boolean> skillProficiencies) throws SkillProficiencyException {
+    public BackgroundFactory skillProficiencies(HashMap<String, Boolean> skillProficiencies) throws SkillProficiencyException {
         this.skillProficiencies = new SkillProficiencies(skillProficiencies);
         return this;
     }
@@ -51,7 +51,7 @@ public class BackgroundFactory {
         return this;
     }
 
-    public BackgroundFactory equipment(HashMap<String, int> equipment){
+    public BackgroundFactory equipment(HashMap<String, Integer> equipment){
         this.equipment = equipment;
         return this;
     }
