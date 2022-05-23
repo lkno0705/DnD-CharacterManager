@@ -1,13 +1,18 @@
 package character;
 
+import aggregates.Attributes;
+import aggregates.Inventory;
 import aggregates.RPGCharacter;
+import entities.CharacterClass;
+import entities.CharacterRace;
+import entities.Currencys;
+import entities.DeathSaves;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repositorys.RepositoryService;
-import valueobjects.HitDie;
-import valueobjects.Weapon;
+import valueobjects.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +24,6 @@ import static org.mockito.Mockito.*;
 class CharacterServiceTest {
 
     private RPGCharacter mockedCharacter;
-    private HitDie mockedDie;
     private Weapon mockedWeapon;
     private RepositoryService mockedRepositoryService;
     private CharacterService characterService;
@@ -114,19 +118,20 @@ class CharacterServiceTest {
     void die() {
     }
 
-    private void mockDie() {
-        this.mockedDie = mock(HitDie.class);
+    private HitDie mockDie() {
+        HitDie mockedDie = mock(HitDie.class);
         when(mockedDie.toString()).thenReturn("HitDie{" +
                 "dieType=" + 10 +
                 ", amount=" + 1 +
                 '}');
         when(mockedDie.getDieType()).thenReturn(10);
         when(mockedDie.getAmount()).thenReturn(1);
+        return mockedDie;
     }
 
     private void mockWeapon() {
         this.mockedWeapon = mock(Weapon.class);
-        when(mockedWeapon.getDamageDie()).thenReturn(mockedDie);
+        when(mockedWeapon.getDamageDie()).thenReturn(mockDie());
         when(mockedWeapon.getName()).thenReturn("Harte Hantel Hartholz");
         when(mockedWeapon.isFinesse()).thenReturn(false);
     }
@@ -135,6 +140,95 @@ class CharacterServiceTest {
         this.mockedRepositoryService = mock(RepositoryService.class);
         doNothing().when(mockedRepositoryService.getAllAliveCharacters());
         doNothing().when(mockedRepositoryService.getAllDeadCharacters());
+    }
+
+    private Player mockPlayer(){
+        Player player = mock(Player.class);
+        when(player.getLastName()).thenReturn("Schwarz");
+        when(player.getFirstName()).thenReturn("Arnold");
+        return player;
+    }
+
+    private CharacterClass mockClass(){
+        CharacterClass characterClass = mock(CharacterClass.class);
+        when(characterClass.getName()).thenReturn("Fighter");
+        when(characterClass.getProficiencyBonus()).thenReturn(5);
+        when(characterClass.getMaxHP()).thenReturn(10);
+        when(characterClass.getCurrentHP()).thenReturn(10);
+        when(characterClass.getHitDice()).thenReturn(new ArrayList<>() {{
+            add(mockDie());
+        }});
+        return characterClass;
+    }
+
+    private Background mockBackground(){
+        Personality personality = mock(Personality.class);
+        when(personality.toString()).thenReturn("Personality{personalityTraits=traits, ideal=ideals, bond=bonds, flaw=flaws}");
+        Background background = mock(Background.class);
+        when(background.getName()).thenReturn("Harter Background");
+        when(background.getPersonality()).thenReturn(personality);
+        return background;
+    }
+
+    private CharacterRace mockRace(){
+        CharacterRace race = mock(CharacterRace.class);
+        when(race.getSpeed()).thenReturn(30);
+        when(race.getRaceName()).thenReturn("Harte Rasse");
+        return race;
+    }
+
+    private DeathSaves mockDeathSaves(){
+        DeathSaves deathSaves = mock(DeathSaves.class);
+        when(deathSaves.toString()).thenReturn("DeathSaves{" +
+                "successes=" + 0 +
+                ", failures=" + 0 +
+                '}');
+        return deathSaves;
+    }
+
+    private Attributes mockAttributes(){
+        Attributes attributes = mock(Attributes.class);
+        when(attributes.getStrength()).thenReturn(10);
+        when(attributes.getStrengthMod()).thenReturn(0);
+        when(attributes.getDexterity()).thenReturn(10);
+        when(attributes.getDexMod()).thenReturn(0);
+        when(attributes.getConstitution()).thenReturn(10);
+        when(attributes.getConstMod()).thenReturn(0);
+        when(attributes.getIntelligence()).thenReturn(10);
+        when(attributes.getIntMod()).thenReturn(0);
+        when(attributes.getWisdom()).thenReturn(10);
+        when(attributes.getWisdomMod()).thenReturn(0);
+        when(attributes.getCharisma()).thenReturn(10);
+        when(attributes.getCharismaMod()).thenReturn(0);
+        return attributes;
+    }
+
+    private Inventory mockInventory(){
+        Currencys currencys = mock(Currencys.class);
+        when(currencys.getCP()).thenReturn(10);
+        when(currencys.getSP()).thenReturn(10);
+        when(currencys.getEP()).thenReturn(10);
+        when(currencys.getGP()).thenReturn(10);
+        when(currencys.getPP()).thenReturn(10);
+
+        Armor armor = mock(Armor.class);
+        when(armor.toString()).thenReturn("Armor{" +
+                "name='" + "Rüstung" + '\'' +
+                ", baseAC=" + 3 +
+                ", withDex=" + false +
+                ", maxDexBonus=" + 4 +
+                ", minimumStrength=" + 10 +
+                '}');
+
+        Inventory inventory = mock(Inventory.class);
+        when(inventory.getCurrencys()).thenReturn(currencys);
+        when(inventory.getItems()).thenReturn(new HashMap<>() {{
+            put("item1", 1);
+            put("item2", 2);
+        }});
+        when(inventory.getWeapons()).thenReturn(new Weapon[]{mockedWeapon});
+        when(inventory.getArmor()).thenReturn(armor);
+        return inventory;
     }
 
     private void mockCharacter() {
@@ -149,42 +243,28 @@ class CharacterServiceTest {
         When(B.getC()).thenReturn(mockC)
         When(C.getInt()).thenReturn(mockInt)
          */
+        Inventory mockedInventory = mockInventory();
+        CharacterRace mockedRace = mockRace();
+        CharacterClass mockedClass = mockClass();
+        DeathSaves mockedDeathSaves = mockDeathSaves();
+        Attributes mockedAttributes = mockAttributes();
+        Player mockedPlayer = mockPlayer();
+        Background mockedBackground = mockBackground();
+
         this.mockedCharacter = mock(RPGCharacter.class);
-        when(this.mockedCharacter.getCharacterClass().getHitDice()).thenReturn(new ArrayList<>() {{
-            add(mockedDie);
-        }});
+
         when(this.mockedCharacter.getName()).thenReturn("Harald Hart im Nehmen");
-        when(this.mockedCharacter.getCharacterClass().getName()).thenReturn("Fighter");
+        when(this.mockedCharacter.getCharacterClass()).thenReturn(mockedClass);
         when(this.mockedCharacter.getLevel()).thenReturn(1);
-        when(this.mockedCharacter.getBackground().getName()).thenReturn("Harter Background");
-        when(this.mockedCharacter.getPlayer().getFirstName()).thenReturn("Arnold");
-        when(this.mockedCharacter.getPlayer().getLastName()).thenReturn("Schwarz");
-        when(this.mockedCharacter.getRace().getRaceName()).thenReturn("Harte Rasse");
+        when(this.mockedCharacter.getBackground()).thenReturn(mockedBackground);
+        when(this.mockedCharacter.getPlayer()).thenReturn(mockedPlayer);
+        when(this.mockedCharacter.getRace()).thenReturn(mockedRace);
         when(this.mockedCharacter.getXp()).thenReturn(0);
         when(this.mockedCharacter.getAge()).thenReturn(45);
-        when(this.mockedCharacter.getCharacterClass().getProficiencyBonus()).thenReturn(5);
         when(this.mockedCharacter.getAC()).thenReturn(14);
-        when(this.mockedCharacter.getRace().getSpeed()).thenReturn(30);
-        when(this.mockedCharacter.getCharacterClass().getMaxHP()).thenReturn(10);
-        when(this.mockedCharacter.getCharacterClass().getCurrentHP()).thenReturn(10);
-        when(this.mockedCharacter.getDeathSaves().toString()).thenReturn("DeathSaves{" +
-                "successes=" + 0 +
-                ", failures=" + 0 +
-                '}');
-        when(this.mockedCharacter.getBackground().getPersonality().toString()).thenReturn("Personality{personalityTraits=traits, ideal=ideals, bond=bonds, flaw=flaws}");
+        when(this.mockedCharacter.getDeathSaves()).thenReturn(mockedDeathSaves);
         when(this.mockedCharacter.isDead()).thenReturn(false);
-        when(this.mockedCharacter.getAttributes().getStrength()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getStrengthMod()).thenReturn(0);
-        when(this.mockedCharacter.getAttributes().getDexterity()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getDexMod()).thenReturn(0);
-        when(this.mockedCharacter.getAttributes().getConstitution()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getConstMod()).thenReturn(0);
-        when(this.mockedCharacter.getAttributes().getIntelligence()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getIntMod()).thenReturn(0);
-        when(this.mockedCharacter.getAttributes().getWisdom()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getWisdomMod()).thenReturn(0);
-        when(this.mockedCharacter.getAttributes().getCharisma()).thenReturn(10);
-        when(this.mockedCharacter.getAttributes().getCharismaMod()).thenReturn(0);
+        when(this.mockedCharacter.getAttributes()).thenReturn(mockedAttributes);
         when(this.mockedCharacter.getSavingThrows()).thenReturn(new HashMap<>() {{
             put("Strength", 3);
             put("Dexterity", 4);
@@ -193,22 +273,6 @@ class CharacterServiceTest {
             put("Acrobatics", 3);
             put("AnimalHandling", 4);
         }});
-        when(this.mockedCharacter.getInventory().getCurrencys().getCP()).thenReturn(10);
-        when(this.mockedCharacter.getInventory().getCurrencys().getSP()).thenReturn(10);
-        when(this.mockedCharacter.getInventory().getCurrencys().getEP()).thenReturn(10);
-        when(this.mockedCharacter.getInventory().getCurrencys().getGP()).thenReturn(10);
-        when(this.mockedCharacter.getInventory().getCurrencys().getPP()).thenReturn(10);
-        when(this.mockedCharacter.getInventory().getItems()).thenReturn(new HashMap<>() {{
-            put("item1", 1);
-            put("item2", 2);
-        }});
-        when(this.mockedCharacter.getInventory().getWeapons()).thenReturn(new Weapon[]{mockedWeapon});
-        when(this.mockedCharacter.getInventory().getArmor().toString()).thenReturn("Armor{" +
-                "name='" + "Rüstung" + '\'' +
-                ", baseAC=" + 3 +
-                ", withDex=" + false +
-                ", maxDexBonus=" + 4 +
-                ", minimumStrength=" + 10 +
-                '}');
+        when(this.mockedCharacter.getInventory()).thenReturn(mockedInventory);
     }
 }
