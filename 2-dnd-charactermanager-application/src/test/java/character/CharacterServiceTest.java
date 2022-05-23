@@ -30,15 +30,10 @@ class CharacterServiceTest {
 
     @BeforeEach
     void setUp() {
-        mockDie();
         mockWeapon();
         mockCharacter();
         mockRepositoryService();
         this.characterService = new CharacterService(mockedCharacter, mockedRepositoryService);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test

@@ -16,7 +16,8 @@ public class DiceRollService {
         this.d20 = new HitDie(20, 1);
     }
 
-    public int rollInitiative(int diceRoll){
+    public int rollInitiative(int diceRoll) throws DiceRollException {
+        checkDiceRange(d20, diceRoll);
         return diceRoll + this.rpgCharacter.getAttributes().getDexMod();
     }
 
