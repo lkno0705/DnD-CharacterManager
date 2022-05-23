@@ -80,16 +80,16 @@ class CharacterServiceTest {
                         "\n    Charisma: " + 10 +
                         "\n    Charisma Modifier: " + 0 +
                         "\n---------------------Saving Throws------------------------" +
-                        "\n    " + "Strength: 3\n    " + "Dexterity: 4\n    " +
+                        "\n    " + "Dexterity: 4\n    " + "Strength: 3\n    " +
                         "\n---------------------Skills------------------------" +
-                        "\n    " + "Acrobatics: 3\n    " + "AnimalHandling: 4\n    " +
+                        "\n    " + "AnimalHandling: 4\n    " + "Acrobatics: 3\n    " +
                         "\n---------------------Inventory------------------------" +
                         "\n    CP" + 10 +
                         "\n    SP" + 10 +
                         "\n    EP" + 10 +
                         "\n    GP" + 10 +
                         "\n    PP" + 10 +
-                        "\n    Items:" + "\n        " + "item1: 1\n    " + "item2: 2\n    " +
+                        "\n    Items:" + "\n        " + "item2: 2\n    " + "item1: 1\n    " +
                         "\n    Weapons:" + "\n        " + "Harte Hantel Hartholz: Damage die=(d10,1)\n        " +
                         "\n    Armor: " + "Armor{" +
                         "name='" + "Rüstung" + '\'' +
@@ -102,21 +102,25 @@ class CharacterServiceTest {
         );
     }
 
-    @Test
-    void takeDamage() {
-    }
-
-    @Test
-    void heal() {
-    }
-
-    @Test
-    void deathSaves() {
-    }
-
-    @Test
-    void die() {
-    }
+// All of these are basically setter methods with extra steps
+//    @Test
+//    void takeDamage() {
+//
+//
+//
+//    }
+//
+//    @Test
+//    void heal() {
+//    }
+//
+//    @Test
+//    void deathSaves() {
+//    }
+//
+//    @Test
+//    void die() {
+//    }
 
     private HitDie mockDie() {
         HitDie mockedDie = mock(HitDie.class);
@@ -130,16 +134,16 @@ class CharacterServiceTest {
     }
 
     private void mockWeapon() {
+        HitDie mockedDie = mockDie();
+
         this.mockedWeapon = mock(Weapon.class);
-        when(mockedWeapon.getDamageDie()).thenReturn(mockDie());
+        when(mockedWeapon.getDamageDie()).thenReturn(mockedDie);
         when(mockedWeapon.getName()).thenReturn("Harte Hantel Hartholz");
         when(mockedWeapon.isFinesse()).thenReturn(false);
     }
 
     private void mockRepositoryService() {
         this.mockedRepositoryService = mock(RepositoryService.class);
-        doNothing().when(mockedRepositoryService.getAllAliveCharacters());
-        doNothing().when(mockedRepositoryService.getAllDeadCharacters());
     }
 
     private Player mockPlayer(){
@@ -150,13 +154,15 @@ class CharacterServiceTest {
     }
 
     private CharacterClass mockClass(){
+        HitDie mockedDie = mockDie();
+
         CharacterClass characterClass = mock(CharacterClass.class);
         when(characterClass.getName()).thenReturn("Fighter");
         when(characterClass.getProficiencyBonus()).thenReturn(5);
         when(characterClass.getMaxHP()).thenReturn(10);
         when(characterClass.getCurrentHP()).thenReturn(10);
         when(characterClass.getHitDice()).thenReturn(new ArrayList<>() {{
-            add(mockDie());
+            add(mockedDie);
         }});
         return characterClass;
     }

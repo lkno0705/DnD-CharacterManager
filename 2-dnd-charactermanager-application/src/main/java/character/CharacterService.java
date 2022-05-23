@@ -92,7 +92,7 @@ public class CharacterService {
                 "\n    Wisdom: " + this.character.getAttributes().getWisdom() +
                 "\n    Wisdom Modifier: " + this.character.getAttributes().getWisdomMod() +
                 "\n    Charisma: " + this.character.getAttributes().getCharisma() +
-                "\n    Charisma Modifier: " + this.character.getAttributes().getCharisma() +
+                "\n    Charisma Modifier: " + this.character.getAttributes().getCharismaMod() +
                 "\n---------------------Saving Throws------------------------" +
                 "\n    " + displayHashmap(this.character.getSavingThrows()) +
                 "\n---------------------Skills------------------------" +

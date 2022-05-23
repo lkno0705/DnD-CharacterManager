@@ -1,0 +1,52 @@
+Character: Harald Hart im Nehmen
+    Class: Fighter
+    Level: 1
+    Background: Harter Background
+    Player Name: Arnold Schwarz
+    Race: Harte Rasse
+    XP: 0
+    Age: 45
+    Proficiency Bonus: 5
+    ArmorClass: 14
+    Speed: 30
+    maxHP: 10
+    CurrentHP: 10
+    Hit Dice: HitDie{dieType=10, amount=1}
+    Death Saves: DeathSaves{successes=0, failures=0}
+    Personality: Personality{personalityTraits=traits, ideal=ideals, bond=bonds, flaw=flaws}
+    isDead: false
+---------------------Attributes------------------------
+    Strength: 10
+    Strength Modifier: 0
+    Dexterity: 10
+    DexterityModifier: 0
+    Consitution: 10
+    Constitution Modifier: 0
+    Intelligence: 10
+    Intelligence Modifier: 0
+    Wisdom: 10
+    Wisdom Modifier: 0
+    Charisma: 10
+    Charisma Modifier: 0
+---------------------Saving Throws------------------------
+    Strength: 3
+    Dexterity: 4
+
+---------------------Skills------------------------
+    Acrobatics: 3
+    AnimalHandling: 4
+
+---------------------Inventory------------------------
+    CP10
+    SP10
+    EP10
+    GP10
+    PP10
+    Items:
+        item1: 1
+    item2: 2
+
+    Weapons:
+        Harte Hantel Hartholz: Damage die=(d10,1)
+
+    Armor: Armor{name='Rüstung', baseAC=3, withDex=false, maxDexBonus=4, minimumStrength=10}
