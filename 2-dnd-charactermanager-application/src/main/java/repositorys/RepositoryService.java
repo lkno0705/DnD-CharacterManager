@@ -14,11 +14,6 @@ public final class RepositoryService {
         this.rpgCharacterGraveyard = rpgCharacterGraveyard;
     }
 
-    public RepositoryService() {
-        this.rpgCharacterRepository = new RPGCharacterRepositoryImpl();
-        this.rpgCharacterGraveyard = new RPGCharacterGraveyardImpl();
-    }
-
     public List<RPGCharacter> getAllAliveCharacters(){
         return this.rpgCharacterRepository.list();
     }

@@ -26,11 +26,6 @@ public class CharacterService {
         this.rpgCharacterRepositoryService = repositoryService;
     }
 
-    public CharacterService(RPGCharacter character) {
-        this.character = character;
-        this.rpgCharacterRepositoryService = new RepositoryService();
-    }
-
     public void updateCharacter(RPGCharacter rpgCharacter) {
         this.character = rpgCharacter;
         this.rpgCharacterRepositoryService.updateCharacter(rpgCharacter);
