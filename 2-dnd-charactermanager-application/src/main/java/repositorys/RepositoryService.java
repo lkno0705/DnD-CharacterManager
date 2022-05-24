@@ -28,6 +28,10 @@ public final class RepositoryService {
         this.rpgCharacterGraveyard.add(character);
     }
 
+    public void addCharacter(RPGCharacter rpgCharacter){
+        this.rpgCharacterRepository.add(rpgCharacter);
+    }
+
     public List<RPGCharacter> getAllDeadCharacters(){
         return this.rpgCharacterGraveyard.list();
     }

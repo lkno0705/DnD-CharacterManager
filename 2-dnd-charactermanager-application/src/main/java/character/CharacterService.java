@@ -103,7 +103,7 @@ public class CharacterService {
                 "\n    Armor: " + this.character.getInventory().getArmor().toString();
     }
 
-    public static RPGCharacter createNewCharacter(CharacterRace characterRace, CharacterClass characterClass, Background background, Inventory inventory, String name, Attributes attributes, DeathSaves deathSaves, Player player, int xp, int age) throws RPGCharacterException {
+    public static RPGCharacter createNewCharacter(CharacterRace characterRace, CharacterClass characterClass, Background background, Inventory inventory, String name, Attributes attributes, DeathSaves deathSaves, Player player, int xp, int age, RepositoryService repositoryService) throws RPGCharacterException {
         RPGCharacter character = new RPGCharacterFactory()
                 .race(characterRace)
                 .characterClass(characterClass)
@@ -119,10 +119,11 @@ public class CharacterService {
         if(background.getEquipment() != null) for (String itemName: background.getEquipment().keySet()) {
             character.getInventory().addItem(itemName, background.getEquipment().get(itemName));
         }
+        repositoryService.addCharacter(character);
         return character;
     }
 
-    public static RPGCharacter createNewCharacter(CharacterRace characterRace, CharacterClass characterClass, Background background, Inventory inventory, String name, Attributes attributes, Player player, int age) throws RPGCharacterException {
+    public static RPGCharacter createNewCharacter(CharacterRace characterRace, CharacterClass characterClass, Background background, Inventory inventory, String name, Attributes attributes, Player player, int age, RepositoryService repositoryService) throws RPGCharacterException {
         RPGCharacter character =  new RPGCharacterFactory()
                 .race(characterRace)
                 .characterClass(characterClass)
@@ -138,6 +139,7 @@ public class CharacterService {
         if(background.getEquipment() != null) for (String itemName: background.getEquipment().keySet()) {
             character.getInventory().addItem(itemName, background.getEquipment().get(itemName));
         }
+        repositoryService.addCharacter(character);
         return character;
     }
 

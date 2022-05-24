@@ -1,6 +1,6 @@
 package terminal.utils;
 
-import terminal.TerminalDataContainer;
+import terminal.datacontainers.TerminalDataContainer;
 import terminal.interfaces.TerminalView;
 
 import java.io.BufferedReader;
@@ -20,14 +20,15 @@ public class Utils {
         return reader.readLine();
 
     }
-    public static int convertInputToInt(String input, TerminalView terminalView){
+    public static int convertInputToInt(String input) throws IOException {
         try{
             int in = Integer.parseInt(input);
+            return in;
         } catch (NumberFormatException e) {
             System.out.println("Invalid input: " + input);
             System.out.println("Input must be a number");
-            terminalView.draw();
         }
+        return 0;
     }
 
 }

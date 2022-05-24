@@ -7,6 +7,26 @@ import java.util.*;
 public final class SkillProficiencies {
 
     final HashMap<String, Boolean> skillProficiencies;
+    final static Set<String> allowedSkillProficiencies = new HashSet<>(Arrays.asList(
+            "Acrobatics",
+            "AnimalHandling",
+            "Arcana",
+            "Athletics",
+            "Deception",
+            "History",
+            "Insight",
+            "Intimidation",
+            "Investigation",
+            "Medicine",
+            "Nature",
+            "Perception",
+            "Performance",
+            "Persuasion",
+            "Religion",
+            "SleightofHand",
+            "Stealth",
+            "Survival"
+    ));
 
     public SkillProficiencies(HashMap<String, Boolean> skillProficiencies) throws SkillProficiencyException {
         if (isValid(skillProficiencies)) this.skillProficiencies = skillProficiencies;
@@ -14,26 +34,7 @@ public final class SkillProficiencies {
     }
 
     private boolean isValid(HashMap<String, Boolean> skillProficiencies){
-        final Set<String> allowedSkillProficiencies = new HashSet<>(Arrays.asList(
-                "Acrobatics",
-                "AnimalHandling",
-                "Arcana",
-                "Athletics",
-                "Deception",
-                "History",
-                "Insight",
-                "Intimidation",
-                "Investigation",
-                "Medicine",
-                "Nature",
-                "Perception",
-                "Performance",
-                "Persuasion",
-                "Religion",
-                "SleightofHand",
-                "Stealth",
-                "Survival"
-        ));
+
         Set<String> proficiencieKeys = skillProficiencies.keySet();
         return (allowedSkillProficiencies.containsAll(proficiencieKeys) && proficiencieKeys.containsAll(allowedSkillProficiencies));
     }
@@ -53,5 +54,9 @@ public final class SkillProficiencies {
 
     public HashMap<String, Boolean> getSkillProficiencies() {
         return skillProficiencies;
+    }
+
+    public static Set<String> getAllowedSkillProficiencies() {
+        return allowedSkillProficiencies;
     }
 }
