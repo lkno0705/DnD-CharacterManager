@@ -5,7 +5,6 @@ import terminal.datacontainers.CharacterDataContainer;
 import terminal.datacontainers.TerminalDataContainer;
 import terminal.interfaces.TerminalView;
 import terminal.utils.Utils;
-import valueobjects.classes.Fighter;
 
 import java.io.IOException;
 import java.util.HashMap;

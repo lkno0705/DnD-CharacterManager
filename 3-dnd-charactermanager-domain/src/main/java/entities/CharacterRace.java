@@ -2,7 +2,6 @@ package entities;
 
 import exceptions.CharacterRaceException;
 import factories.CharacterRaceFactory;
-import factories.RPGCharacterFactory;
 import valueobjects.AgeRange;
 import valueobjects.AttributeBoni;
 import valueobjects.CharacterSize;

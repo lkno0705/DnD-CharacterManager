@@ -7,7 +7,6 @@ import exceptions.SavingThrowException;
 import exceptions.SkillProficiencyException;
 import factories.CharacterClassFactory;
 import valueobjects.HitDie;
-import valueobjects.SkillProficiencies;
 
 import java.util.Arrays;
 import java.util.HashMap;

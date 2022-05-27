@@ -1,7 +1,6 @@
 package terminal.utils;
 
 import terminal.datacontainers.TerminalDataContainer;
-import terminal.interfaces.TerminalView;
 
 import java.io.BufferedReader;
 import java.io.IOException;

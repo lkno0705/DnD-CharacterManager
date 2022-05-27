@@ -7,19 +7,17 @@ import entities.CharacterClass;
 import entities.CharacterRace;
 import entities.Currencys;
 import entities.DeathSaves;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repositorys.RepositoryService;
 import valueobjects.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class CharacterServiceTest {
 

@@ -4,7 +4,6 @@ import aggregates.Inventory;
 import entities.Currencys;
 import exceptions.CurrencyException;
 import exceptions.InventoryException;
-import exceptions.WeaponException;
 import valueobjects.Armor;
 import valueobjects.Weapon;
 

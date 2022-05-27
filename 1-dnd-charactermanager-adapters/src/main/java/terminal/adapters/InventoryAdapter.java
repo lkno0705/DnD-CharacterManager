@@ -1,9 +1,6 @@
 package terminal.adapters;
 
 import entities.Currencys;
-import exceptions.CurrencyException;
-import exceptions.HitDieException;
-import exceptions.WeaponException;
 import factories.InventoryFactory;
 import terminal.datacontainers.CharacterDataContainer;
 import valueobjects.Armor;

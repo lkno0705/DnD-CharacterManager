@@ -2,7 +2,6 @@ package aggregates;
 
 import entities.Currencys;
 import exceptions.InventoryException;
-import exceptions.WeaponException;
 import factories.InventoryFactory;
 import valueobjects.Armor;
 import valueobjects.Weapon;

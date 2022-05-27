@@ -6,7 +6,6 @@ import aggregates.RPGCharacter;
 import character.CharacterService;
 import entities.CharacterClass;
 import entities.CharacterRace;
-import entities.DeathSaves;
 import exceptions.RPGCharacterException;
 import repositorys.RepositoryService;
 import valueobjects.Background;

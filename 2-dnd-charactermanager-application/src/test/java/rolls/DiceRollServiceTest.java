@@ -4,7 +4,6 @@ import aggregates.Attributes;
 import aggregates.RPGCharacter;
 import exceptions.DiceRollException;
 import exceptions.HitDieException;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import valueobjects.HitDie;
