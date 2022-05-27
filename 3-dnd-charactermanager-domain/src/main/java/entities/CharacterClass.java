@@ -46,7 +46,7 @@ public class CharacterClass {
         else throw new CharacterClassException("Name can not be null");
 
         this.maxHP = calculateMaxHP(constitutionModifier);
-        this.currentHP = 0;
+        this.currentHP = this.maxHP;
         this.id = UUID.randomUUID();
     }
 

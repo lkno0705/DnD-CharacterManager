@@ -1,4 +1,4 @@
-package terminal.views;
+package terminal.views.createcharacter;
 
 import terminal.adapters.CharacterRaceAdapters;
 import terminal.datacontainers.CharacterDataContainer;
@@ -14,7 +14,7 @@ public class CreateCharacterRace implements TerminalView {
     TerminalDataContainer terminalDataContainer;
     CharacterDataContainer characterDataContainer;
     HashMap<Integer, Runnable> characterRaceJumpTable = new HashMap<>(){{
-        put(1, () -> CharacterRaceAdapters.buildHuman(characterDataContainer));
+        put(1, () -> characterDataContainer = CharacterRaceAdapters.buildHuman(characterDataContainer));
     }};
 
     public CreateCharacterRace(TerminalDataContainer terminalDataContainer, CharacterDataContainer characterDataContainer) {
@@ -32,5 +32,14 @@ public class CreateCharacterRace implements TerminalView {
             return;
         }
         characterRaceJumpTable.get(input).run();
+    }
+
+    @Override
+    public TerminalDataContainer getTerminalDataContainer() {
+        return terminalDataContainer;
+    }
+
+    public CharacterDataContainer getCharacterDataContainer() {
+        return characterDataContainer;
     }
 }

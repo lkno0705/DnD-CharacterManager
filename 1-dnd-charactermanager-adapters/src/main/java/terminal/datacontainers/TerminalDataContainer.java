@@ -23,4 +23,8 @@ public class TerminalDataContainer {
     public void setCurrentlySelectedCharacter(RPGCharacter currentlySelectedCharacter) {
         this.currentlySelectedCharacter = currentlySelectedCharacter;
     }
+
+    public void setRepositoryService(RepositoryService repositoryService) {
+        this.repositoryService = repositoryService;
+    }
 }

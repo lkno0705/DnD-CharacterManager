@@ -1,4 +1,4 @@
-package terminal.views;
+package terminal.views.createcharacter;
 
 import terminal.adapters.CharacterClassAdapter;
 import terminal.datacontainers.CharacterDataContainer;
@@ -15,7 +15,9 @@ public class CreateCharacterClass implements TerminalView {
     private TerminalDataContainer terminalDataContainer;
     private CharacterDataContainer characterDataContainer;
     private HashMap<Integer, Runnable> characterClassJumpTable = new HashMap<>(){{
-        put(1,() -> CharacterClassAdapter.buildFighter(characterDataContainer));
+        put(1,() -> {
+            characterDataContainer = CharacterClassAdapter.buildFighter(characterDataContainer);
+        });
     }};
 
     public CreateCharacterClass(TerminalDataContainer terminalDataContainer, CharacterDataContainer characterDataContainer) {
@@ -33,5 +35,14 @@ public class CreateCharacterClass implements TerminalView {
             return;
         }
         characterClassJumpTable.get(input).run();
+    }
+
+    @Override
+    public TerminalDataContainer getTerminalDataContainer() {
+        return null;
+    }
+
+    public CharacterDataContainer getCharacterDataContainer() {
+        return characterDataContainer;
     }
 }

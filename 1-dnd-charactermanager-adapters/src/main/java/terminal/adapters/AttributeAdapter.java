@@ -1,6 +1,5 @@
 package terminal.adapters;
 
-import entities.Attribute;
 import exceptions.AttributeException;
 import factories.AttributeFactory;
 import terminal.datacontainers.CharacterDataContainer;
@@ -43,7 +42,7 @@ public class AttributeAdapter {
         this.charisma = charisma;
     }
 
-    public void build(){
+    public CharacterDataContainer build(){
         try {
             characterDataContainer.setAttributes(
                     new AttributeFactory()
@@ -55,7 +54,9 @@ public class AttributeAdapter {
                             .strength(strength)
                             .build());
         } catch (AttributeException e) {
-            System.out.println("Error building Attributes");
+            e.printStackTrace();
+            //            System.out.println("Error building Attributes");
         }
+        return this.characterDataContainer;
     }
 }

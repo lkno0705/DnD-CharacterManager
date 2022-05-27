@@ -31,6 +31,14 @@ public final class Fighter {
                             put("Intimidation", true);
                             put("Investigation", false);
                             put("Medicine", false);
+                            put("Nature", false);
+                            put("Perception", false);
+                            put("Performance", false);
+                            put("Persuasion", false);
+                            put("Religion", false);
+                            put("SleightofHand", true);
+                            put("Stealth", true);
+                            put("Survival", false);
                         }}
                 )
                 .savingThrowProficiencies(

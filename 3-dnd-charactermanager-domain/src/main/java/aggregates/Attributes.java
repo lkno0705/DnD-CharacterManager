@@ -24,7 +24,7 @@ public class Attributes {
         if(dexterity.getAttributeName().equals("Dexterity")) this.dexterity = dexterity;
         else throw new AttributeException("Invalid Attribute Name: " + dexterity.getAttributeName() + "for Attribute Dexterity");
 
-        if(constitution.getAttributeName().equals("Consitution")) this.constitution = constitution;
+        if(constitution.getAttributeName().equals("Constitution")) this.constitution = constitution;
         else throw new AttributeException("Invalid Attribute Name: " + constitution.getAttributeName() + "for Attribute Constitution");
 
         if(intelligence.getAttributeName().equals("Intelligence")) this.intelligence = intelligence;

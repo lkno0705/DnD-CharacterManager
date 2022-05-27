@@ -1,4 +1,4 @@
-package terminal.views;
+package terminal.views.createcharacter;
 
 import terminal.adapters.AttributeAdapter;
 import terminal.datacontainers.CharacterDataContainer;
@@ -41,6 +41,15 @@ public class CreateAttributes implements TerminalView {
         System.out.println("Charisma");
         in =  Utils.getTerminalInput(terminalDataContainer);
         attributeAdapter.setCharisma(Utils.convertInputToInt(in));
-        attributeAdapter.build();
+        characterDataContainer = attributeAdapter.build();
+    }
+
+    @Override
+    public TerminalDataContainer getTerminalDataContainer() {
+        return null;
+    }
+
+    public CharacterDataContainer getCharacterDataContainer() {
+        return characterDataContainer;
     }
 }

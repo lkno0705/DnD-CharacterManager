@@ -184,4 +184,8 @@ public class CharacterService {
         this.character.setDead();
         this.rpgCharacterRepositoryService.moveCharacterToGraveyard(this.character);
     }
+
+    public RepositoryService getRpgCharacterRepositoryService() {
+        return rpgCharacterRepositoryService;
+    }
 }

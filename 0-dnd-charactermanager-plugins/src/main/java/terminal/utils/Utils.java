@@ -12,7 +12,7 @@ public class Utils {
     public static String getTerminalInput(TerminalDataContainer terminalDataContainer) throws IOException {
         String selectedCharacter = "None";
         if(terminalDataContainer.getCurrentlySelectedCharacter() != null) selectedCharacter = terminalDataContainer.getCurrentlySelectedCharacter().getName();
-        System.out.println(selectedCharacter + ">");
+        System.out.print(selectedCharacter + "> ");
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));

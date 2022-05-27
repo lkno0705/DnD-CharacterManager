@@ -14,6 +14,7 @@ public class DnDCharacterManagerApplication {
         while (true){
             MainMenu mainMenu = new MainMenu(terminalDataContainer);
             mainMenu.draw();
+            terminalDataContainer = mainMenu.getTerminalDataContainer();
         }
     }
 
