@@ -53,7 +53,7 @@ public class Attribute {
     }
 
     public void setAttributeValue(int attributeValue) throws AttributeException {
-        if (attributeValue > 0) this.attributeValue = attributeValue;
+        if (attributeValue > 0 && attributeValue < 20) this.attributeValue = attributeValue;
         else throw new AttributeException("Invalid attribute Value: " + attributeValue);
         this.attributeModifier = calcMod(attributeValue);
     }
