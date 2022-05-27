@@ -51,9 +51,16 @@ public class MainMenu implements TerminalView {
             }
         });
         put(5, () -> DisplayCharacter.draw(characterService));
-        put(6, () -> ShowAvailableCharacters.showAvailableCharacters(terminalDataContainer));
-        put(7, () -> ShowAvailableCharacters.showDeadCharacters(terminalDataContainer));
-        put(8, () -> System.exit(0));
+        put(6, () -> {
+            try {
+                new CheckView(terminalDataContainer).draw();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        put(7, () -> ShowAvailableCharacters.showAvailableCharacters(terminalDataContainer));
+        put(8, () -> ShowAvailableCharacters.showDeadCharacters(terminalDataContainer));
+        put(9, () -> System.exit(0));
     }};
 
     public MainMenu(TerminalDataContainer terminalDataContainer) {
@@ -74,9 +81,10 @@ public class MainMenu implements TerminalView {
         System.out.println("3) Delete selected Character" + (selectedCharacterNull? "(Not available)": ""));
         System.out.println("4) Select Character" + (repositoryIsEmpty? "(Not available)": ""));
         System.out.println("5) Display Character" + (selectedCharacterNull? "(Not available)": "") );
-        System.out.println("6) Show all Characters");
-        System.out.println("7) Show all dead Characters");
-        System.out.println("8) Exit");
+        System.out.println("6) Perform Check" + (selectedCharacterNull? "(Not available)": "") );
+        System.out.println("7) Show all Characters");
+        System.out.println("8) Show all dead Characters");
+        System.out.println("9) Exit");
         String in =  Utils.getTerminalInput(terminalDataContainer);
         int input = Utils.convertInputToInt(in);
         if (input == 0){
