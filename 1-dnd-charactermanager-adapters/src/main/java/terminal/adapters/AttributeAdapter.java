@@ -54,8 +54,7 @@ public class AttributeAdapter {
                             .strength(strength)
                             .build());
         } catch (AttributeException e) {
-            e.printStackTrace();
-            //            System.out.println("Error building Attributes");
+            System.out.println("Error building Attributes");
         }
         return this.characterDataContainer;
     }
