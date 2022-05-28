@@ -1,6 +1,6 @@
 \chapter{Entwurfsmuster}
 
-\section{Entwurfsmuster:  Factory}
+\section{Entwurfsmuster:  Erbauer}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Bilder/RPGCharacter.pdf}
@@ -8,9 +8,9 @@
 	\caption{UML der RPGChracter und der RPGCharacterFactory Klasse}
 	\label{fig:factory}
 \end{figure}
-Um komplexe Objekte, wie z.B.: den \texttt{RPGCharacter} zu erzeugen, wurde das Erbauer / Factory Entwurfsmuster eingesetzt. Dieses ermöglicht es die Objekte Schritt für Schritt auf verschiedene Art und weisen zu Erzeugen und stellt gleichzeitig noch die Korrektheit der Objekte sicher. Abbildung \ref{fig:factory} zeigt die UML Diagramme der \texttt{RPGCharacter} Klasse und der dazugehörigen Factory. Dies verhindert das sehr lange Konstruktoren und Parameter auf einmal zur Objekterzeugung verwendet werden müssen und ermöglicht eine einfachere Handhabung der Objekterstellung in höheren Schichten.
+Um komplexe Objekte, wie z.B.: den \texttt{RPGCharacter} zu erzeugen, wurde das Erbauer Entwurfsmuster eingesetzt. Dieses ermöglicht es die Objekte Schritt für Schritt auf verschiedene Art und weisen zu Erzeugen und stellt gleichzeitig noch die Korrektheit der Objekte sicher. Abbildung \ref{fig:factory} zeigt die UML Diagramme der \texttt{RPGCharacter} Klasse und des dazugehörigen Erbauers. Dies verhindert das sehr lange Konstruktoren und Parameter auf einmal zur Objekterzeugung verwendet werden müssen und ermöglicht eine einfachere Handhabung der Objekterstellung in höheren Schichten.
 
-\section{Entwurfsmuster:  Stellvertretere}
+\section{Entwurfsmuster:  Stellvertreterle}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Bilder/RPGCharacterGraveyard.pdf}

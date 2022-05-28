@@ -1,10 +1,11 @@
 \chapter{Domain Driven Design}
 \section{Ubiquitous Language}
 \begin{description}
-	\item[Klasse] Die Klasse des Charackters. Sie bestimmt Lebenspunkte, Sprachen, Heilungsmöglichkeiten uvm. Sie hat einen direkten Einfluss auf die Spielweise des Charackters. Sie gehört zur Ubiquitous Language, dar sie einen spezielle Eigenschaft des Charackters beschreibt. Andere könnten unter diesem Begriff vor allem im Programmier Umfeld unterschiedliche Dinge
-	\item[Rasse] Die Rasse des Charackters. Sie bestimmt Attribut Boni, die Geschwindigkeit, Sprachen, Alter und Größe. Somit hat sie einen gr0ßen Einfluss auf die äußerliche Erscheinung des Charackters. Sie ist Teil der Ubiquitous Language, da sie im Domänen Umfeld Einfluss auf viele Dinge hat. Außenstehende würden diesen Begriff sicherlich meist mit negativen Ausdrücken assoziieren oder ihn allein auf die Hautfarbe eines Menschen beschränken.
-	\item[Equipment] Die Ausrüstung die ein Charakter mitführt. Dieser Begriff ist Teil der Ubiquitous language, da es für alle Projekt teilnehmer wichtig ist, was ein Charackter mitführen kann. Dies hat unweigerliche Auswirkungen auf Statuswerte, attackier möglichkeiten uvm.
-	\item[HitDice] Die Würfel die ein Spieler würfeln kann, um die Lebenspunkte seines Charakters wieder aufzufüllen. Sie sind Teil der Ubiquitous language, da außenstehende diesen Begriff warscheinlich gar nicht kennen.
+	\item[Klasse] Die Klasse des Charakters. Sie bestimmt Lebenspunkte, Sprachen, Heilungsmöglichkeiten uvm. Sie hat einen direkten Einfluss auf die Spielweise des Charackters. Sie gehört zur Ubiquitous Language, dar sie einen spezielle Eigenschaft des Charakters beschreibt. Andere könnten unter diesem Begriff vor allem im Programmier Umfeld unterschiedliche Dinge verstehen. Im Projekt heißt sie \texttt{CharacterClass}.
+	\item[Rasse] Die Rasse des Charakters. Sie bestimmt Attribut Boni, die Geschwindigkeit, Sprachen, Alter und Größe. Somit hat sie einen großen Einfluss auf die äußerliche Erscheinung des Charakters. Sie ist Teil der Ubiquitous Language, da sie im Domänen Umfeld Einfluss auf viele Dinge hat. Außenstehende würden diesen Begriff sicherlich meist mit negativen Ausdrücken assoziieren oder ihn allein auf die Hautfarbe eines Menschen beschränken. Im Projekt heißt sie \texttt{CharacterRace}.
+	\item[Equipment] Die Ausrüstung die ein Charakter mitführt. Dieser Begriff ist Teil der Ubiquitous 
+	Language, da es für alle Projektteilnehmer wichtig ist, was ein Charackter mitführen kann. Dies hat unweigerliche Auswirkungen auf Statuswerte, Attackiermöglichkeiten uvm.
+	\item[HitDice] Die Würfel die ein Spieler würfeln kann, um die Lebenspunkte seines Charakters wieder aufzufüllen. Sie sind Teil der Ubiquitous Language, da Außenstehende diesen Begriff warscheinlich nicht kennen.
 \end{description}
 
 \FloatBarrier
@@ -24,7 +25,7 @@ Abbildung \ref{fig:DeathSaves} zeigt eine Entity der Domain Modellierung des DnD
 	\caption{UML der HitDie Klasse}
 	\label{fig:HitDie}
 \end{figure}
-Abbildung \ref{fig:HitDie} zeigt das UML Diagramm der Klasse \texttt{HitDie}. Diese Klasse modelliert einen Würfel für den Angriff, zum heilen oder für verschiedene Checks. Sie stellt also sicher, das ausschließlich die in DnD 5e erlaubten Würfel verwendet werden. Da ein Würfel ausschließlich über seine Merkmale wie die Seitenanzahl, oder wie viele Würfel man zur Verfügung hat identifieziert wird, stellt diese klasse ein Value Object dar. Somit müssen die Attribute \texttt{amount} und \texttt{dieType} auf den selben Hashwert abbilden, damit eine Instanz der Klasse als äquivalent gilt.
+Abbildung \ref{fig:HitDie} zeigt das UML Diagramm der Klasse \texttt{HitDie}. Diese Klasse modelliert einen Würfel für den Angriff, zum heilen oder für verschiedene Checks. Sie stellt also sicher, das ausschließlich die in DnD 5e erlaubten Würfel verwendet werden. Da ein Würfel ausschließlich über seine Merkmale wie die Seitenanzahl, oder wie viele Würfel man zur Verfügung hat identifieziert wird, stellt diese Klasse ein Value Object dar. Somit müssen die Attribute \texttt{amount} und \texttt{dieType} auf den selben Hashwert abbilden, damit eine Instanz der Klasse als äquivalent gilt.
 
 \section{Repositories}
 \begin{figure}[H]

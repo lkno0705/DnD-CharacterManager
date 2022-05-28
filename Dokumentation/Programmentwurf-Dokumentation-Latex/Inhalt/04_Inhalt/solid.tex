@@ -40,7 +40,20 @@ Die in Abbildung \ref{fig:HitDie-OCP} gezeigte Klasse \texttt{HitDie} hält das 
 Ich lasse an dieser Stelle das UML weg, da es keine Sinnvolle Aussagekraft hat. Die Klasse \texttt{SkillProficiencies} hält das OCP nicht ein, auch wenn sie eine Liste aller verfügbaren Skills enthält, muss man, wenn man einen neuen Skill hinzufügen möchte auch Änderungen in der \texttt{RPGCharacterClass} vornehmen. Da dort eine Hashmap zusammengebaut wird, die die tatsächlichen Werte enthalten. Somit liegt die Funktionalität der SkillProficiencies Klasse auf 2 Klassen aufgeteilt im Projekt und Änderungen und Modifikationen erfordern einen höheren Aufwand. Lösen könnte man dies, in dem man entweder in der Klasse SkillProficiencies eine neue Methode für die oben gennante Funktionalität anlegt, oder eine Klasse für die Skillwerte anlegt, die sich eine statische Liste aller validen Skills mit der SkillProficiencie Klasse teilt.
 
 \section{Analyse Liskov-Substitution- (LSP), Interface-Segreggation- (ISP), Dependency-Inversion-Principle (DIP)}
-\[jeweils eine Klasse als positives und negatives Beispiel für entweder LSP oder ISP oder DIP);  jeweils UML der Klasse und Begründung, warum man hier das Prinzip erfüllt/nicht erfüllt wird\] \\
-\[Anm.: es darf nur ein Prinzip ausgewählt werden; es darf NICHT z.B. ein positives Beispiel für LSP und ein negatives Beispiel für ISP genommen werden\]
-\subsection{Positiv-Beispiel}
+\subsection{Positiv-Beispiel DIP}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Bilder/RepositoryService-DIP.pdf}
+	\caption{UML der RepositoryService Klasse}
+	\label{fig:repservdip}
+\end{figure}
+Der RepositoryService hält das DIP ein, da er ausschließlich von einer Abstraktion der Repositorys in Form der jeweiligen Interfaces Abhängig ist, nicht aber von der Klasse und der Implementation selbst. Somit kann die Implementation jederzeit geändert werden, ohne das der RepositoryService verändert werden muss. 
+- Repositorys
 \subsection{Negativ-Beispiel}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Bilder/CharacterService-DIP.pdf}
+	\caption{UML der CharacterService Klasse}
+	\label{fig:characterServDip}
+\end{figure}
+Die Klasse CharacterService hält DIP wiederum nicht ein. Sie speichert direkt Verweise auf Objekte und ruft in allen Methoden, Methoden der gespeicherten Objekte sofort auf. Somit ist sie direkt Abhängig von den Objekten und nutzt keinerlei Abstraktionen.
