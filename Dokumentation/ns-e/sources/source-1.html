@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Fighter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">valueobjects.classes</a>
+</div>
+
+<h1>Coverage Summary for Class: Fighter (valueobjects.classes)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Fighter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Fighter$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Fighter$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package valueobjects.classes;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import entities.CharacterClass;
+<i class="no-highlight">4</i>&nbsp;import exceptions.CharacterClassException;
+<i class="no-highlight">5</i>&nbsp;import exceptions.HitDieException;
+<i class="no-highlight">6</i>&nbsp;import exceptions.SavingThrowException;
+<i class="no-highlight">7</i>&nbsp;import exceptions.SkillProficiencyException;
+<i class="no-highlight">8</i>&nbsp;import factories.CharacterClassFactory;
+<i class="no-highlight">9</i>&nbsp;import valueobjects.HitDie;
+<i class="no-highlight">10</i>&nbsp;
+<i class="no-highlight">11</i>&nbsp;import java.util.Arrays;
+<i class="no-highlight">12</i>&nbsp;import java.util.HashMap;
+<i class="no-highlight">13</i>&nbsp;
+<b class="nc"><i class="no-highlight">14</i>&nbsp;public final class Fighter {</b>
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;    public static CharacterClass build(int constitutionModifier) throws SkillProficiencyException, SavingThrowException, HitDieException, CharacterClassException {
+<b class="nc"><i class="no-highlight">17</i>&nbsp;        return new CharacterClassFactory()</b>
+<b class="nc"><i class="no-highlight">18</i>&nbsp;                .proficiencyBonus(2)</b>
+<b class="nc"><i class="no-highlight">19</i>&nbsp;                .level(1)</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;                .languages(Arrays.asList(&quot;Common&quot;))</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;                .skillProficiencies(</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;                        new HashMap&lt;&gt;() {{</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;                            put(&quot;Acrobatics&quot;, true);</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;                            put(&quot;AnimalHandling&quot;, true);</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;                            put(&quot;Arcana&quot;, false);</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;                            put(&quot;Athletics&quot;, true);</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;                            put(&quot;Deception&quot;, false);</b>
+<b class="nc"><i class="no-highlight">28</i>&nbsp;                            put(&quot;History&quot;, true);</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;                            put(&quot;Insight&quot;, true);</b>
+<b class="nc"><i class="no-highlight">30</i>&nbsp;                            put(&quot;Intimidation&quot;, true);</b>
+<b class="nc"><i class="no-highlight">31</i>&nbsp;                            put(&quot;Investigation&quot;, false);</b>
+<b class="nc"><i class="no-highlight">32</i>&nbsp;                            put(&quot;Medicine&quot;, false);</b>
+<b class="nc"><i class="no-highlight">33</i>&nbsp;                            put(&quot;Nature&quot;, false);</b>
+<b class="nc"><i class="no-highlight">34</i>&nbsp;                            put(&quot;Perception&quot;, false);</b>
+<b class="nc"><i class="no-highlight">35</i>&nbsp;                            put(&quot;Performance&quot;, false);</b>
+<b class="nc"><i class="no-highlight">36</i>&nbsp;                            put(&quot;Persuasion&quot;, false);</b>
+<b class="nc"><i class="no-highlight">37</i>&nbsp;                            put(&quot;Religion&quot;, false);</b>
+<b class="nc"><i class="no-highlight">38</i>&nbsp;                            put(&quot;SleightofHand&quot;, true);</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;                            put(&quot;Stealth&quot;, true);</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;                            put(&quot;Survival&quot;, false);</b>
+<i class="no-highlight">41</i>&nbsp;                        }}
+<i class="no-highlight">42</i>&nbsp;                )
+<b class="nc"><i class="no-highlight">43</i>&nbsp;                .savingThrowProficiencies(</b>
+<b class="nc"><i class="no-highlight">44</i>&nbsp;                        new HashMap&lt;&gt;() {{</b>
+<b class="nc"><i class="no-highlight">45</i>&nbsp;                            put(&quot;Strength&quot;, true);</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;                            put(&quot;Dexterity&quot;, false);</b>
+<b class="nc"><i class="no-highlight">47</i>&nbsp;                            put(&quot;Constitution&quot;, true);</b>
+<b class="nc"><i class="no-highlight">48</i>&nbsp;                            put(&quot;Intelligence&quot;, false);</b>
+<b class="nc"><i class="no-highlight">49</i>&nbsp;                            put(&quot;Wisdom&quot;, false);</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;                            put(&quot;Charisma&quot;, false);</b>
+<i class="no-highlight">51</i>&nbsp;                        }}
+<i class="no-highlight">52</i>&nbsp;                )
+<b class="nc"><i class="no-highlight">53</i>&nbsp;                .constitutionModifier(constitutionModifier)</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;                .hitDice(Arrays.asList(</b>
+<i class="no-highlight">55</i>&nbsp;                        new HitDie(10, 1)
+<i class="no-highlight">56</i>&nbsp;                ))
+<b class="nc"><i class="no-highlight">57</i>&nbsp;                .name(&quot;Fighter&quot;)</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;                .build();</b>
+<i class="no-highlight">59</i>&nbsp;    }
+<i class="no-highlight">60</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-28 13:08</div>
+</div>
+</body>
+</html>

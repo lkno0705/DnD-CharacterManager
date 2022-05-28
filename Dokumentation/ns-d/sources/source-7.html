@@ -1,0 +1,159 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Personality</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">valueobjects</a>
+</div>
+
+<h1>Coverage Summary for Class: Personality (valueobjects)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Personality</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package valueobjects;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import exceptions.PersonalityException;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;import java.util.Arrays;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;public final class Personality {
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;    final String[] personalityTraits;
+<i class="no-highlight">10</i>&nbsp;    final String[] ideal;
+<i class="no-highlight">11</i>&nbsp;    final String[] bond;
+<i class="no-highlight">12</i>&nbsp;    final String[] flaw;
+<i class="no-highlight">13</i>&nbsp;
+<b class="nc"><i class="no-highlight">14</i>&nbsp;    public Personality(String[] personalityTraits, String[] ideal, String[] bond, String[] flaw) throws PersonalityException {</b>
+<b class="nc"><i class="no-highlight">15</i>&nbsp;        if(personalityTraits != null) this.personalityTraits = personalityTraits;</b>
+<b class="nc"><i class="no-highlight">16</i>&nbsp;        else throw new PersonalityException(&quot;Personality Traits can not be null&quot;);</b>
+<i class="no-highlight">17</i>&nbsp;
+<b class="nc"><i class="no-highlight">18</i>&nbsp;        if (ideal != null) this.ideal = ideal;</b>
+<b class="nc"><i class="no-highlight">19</i>&nbsp;        else throw new PersonalityException(&quot;Ideals can not be null&quot;);</b>
+<i class="no-highlight">20</i>&nbsp;
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        if(bond != null) this.bond = bond;</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        else throw new PersonalityException(&quot;Bonds can not be null&quot;);</b>
+<i class="no-highlight">23</i>&nbsp;
+<b class="nc"><i class="no-highlight">24</i>&nbsp;        if (flaw != null) this.flaw = flaw;</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;        else throw new PersonalityException(&quot;Flaws can not be null&quot;);</b>
+<i class="no-highlight">26</i>&nbsp;    }
+<i class="no-highlight">27</i>&nbsp;
+<i class="no-highlight">28</i>&nbsp;    @Override
+<i class="no-highlight">29</i>&nbsp;    public boolean equals(Object o) {
+<b class="nc"><i class="no-highlight">30</i>&nbsp;        if (this == o) return true;</b>
+<b class="nc"><i class="no-highlight">31</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="nc"><i class="no-highlight">32</i>&nbsp;        Personality that = (Personality) o;</b>
+<b class="nc"><i class="no-highlight">33</i>&nbsp;        return Arrays.equals(personalityTraits, that.personalityTraits) &amp;&amp; Arrays.equals(ideal, that.ideal) &amp;&amp; Arrays.equals(bond, that.bond) &amp;&amp; Arrays.equals(flaw, that.flaw);</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    @Override
+<i class="no-highlight">37</i>&nbsp;    public int hashCode() {
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        int result = Arrays.hashCode(personalityTraits);</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;        result = 31 * result + Arrays.hashCode(ideal);</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;        result = 31 * result + Arrays.hashCode(bond);</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;        result = 31 * result + Arrays.hashCode(flaw);</b>
+<b class="nc"><i class="no-highlight">42</i>&nbsp;        return result;</b>
+<i class="no-highlight">43</i>&nbsp;    }
+<i class="no-highlight">44</i>&nbsp;
+<i class="no-highlight">45</i>&nbsp;    @Override
+<i class="no-highlight">46</i>&nbsp;    public String toString() {
+<b class="nc"><i class="no-highlight">47</i>&nbsp;        return &quot;Personality{&quot; +</b>
+<b class="nc"><i class="no-highlight">48</i>&nbsp;                &quot;personalityTraits=&quot; + Arrays.toString(personalityTraits) +</b>
+<b class="nc"><i class="no-highlight">49</i>&nbsp;                &quot;, ideal=&quot; + Arrays.toString(ideal) +</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;                &quot;, bond=&quot; + Arrays.toString(bond) +</b>
+<b class="nc"><i class="no-highlight">51</i>&nbsp;                &quot;, flaw=&quot; + Arrays.toString(flaw) +</b>
+<i class="no-highlight">52</i>&nbsp;                &#39;}&#39;;
+<i class="no-highlight">53</i>&nbsp;    }
+<i class="no-highlight">54</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-28 13:08</div>
+</div>
+</body>
+</html>

@@ -24,7 +24,14 @@ Abbildung \ref{fig:RollDiceServiceDependencys} das UML Diagramm der Klasse \text
 
 
 \subsection{Negativ-Beispiel: Dependency Rule}
-Aus älterem Commit die Repository Implementation
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bilder/RepositoryService.pdf}
+	\caption{UML RepositoryService}
+	\label{fig:RepositoryService}
+\end{figure}
+Abbildung \ref{fig:RepositoryService} zeigt das UML Klassendiagramm der Klasse \texttt{RepositoryService}. Diese Klasse befindet sich in der Application Schicht der Clean Architecture und stellt verschiedene Methoden / Use Cases für höhere Schichten bereit. Wie der Abbildung zu entnehmen ist, wurde hier die Dependency Rule nicht eingehalten, denn die Klasse \texttt{RepositoryService} hängt von den Klassen \texttt{RPGCharacterGraveyardImpl} und \texttt{RPGCharacterRepositoryImpl} ab. Beide Klassen sind Teil der Plugin Schicht und stellen die Implementierung der Repositorys zur Persistierung der Daten In-Memory bereit. Somit, wird hier die Dependency Rule verletzt, da eine Klasse der Application Schicht von Klassen in der Plugin Schicht abhängt. Neben den beiden Klassen aus der Plugin Schicht, ist die Klasse \texttt{RepositoryService} noch von der Klasse \texttt{RPGCharacter} aus der Domain Schicht abhängig. Um die Dependency Rule hier einzuhalten, wäre es korrekt anstatt die Implementation, die entsprechenden Interfaces in der Domain Schicht zu referenzieren.
+Ich musste dieses Beispiel aus meinem Code in einem späteren Commit entfernen, da maven aufgrund der entstehenden Circular Dependency keinen Workflow mehr zugelassen hat. Der Code ist in Commmit \href{https://github.com/lkno0705/DnD-CharacterManager/tree/05b0b375a9279b1d63f8072d4d1756f30306457b}{https://github.com/lkno0705/DnD-CharacterManager/tree/05b0b375a9279b1d63f8072d4d1756f30306457b} einsehbar.
 
 \section{Analyse der Schichten}
 

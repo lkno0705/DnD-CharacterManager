@@ -31,13 +31,51 @@ Tabelle irgendwo in diesem Kapitel. Latex packt die dahin wo es das für richtig
 \clearpage% Flush page
 }
 \section{ATRIP: Automatic}
-[Begründung/Erläuterung, wie ‘Automatic’ realisiert wurde]
+Automatic wurde auf zwei verschiedene Arten und weisen realisiert, einmal wurde die pom.xml des Maven Projektes im Hauptmodul der Applikation so angepasst, das das automatische Ausführen aller Tests Teil des Maven Workflows ist. Somit werden Tests automatisch mit jedem maven package, test und install ausgeführt. Sollte ein Test fehlschlagen, wird der jeweilige maven workflow nicht erfolgreich abgeschlossen. Desweiteren wurde ein Github workflow zur automatischen Validierung aller Pullrequests und Commits angelegt. Dieser Workflow führt nach jedem Commit in einer isolierten Umgebung den maven package workflow aus. Kommt es während dieses zu einem Test Failure, schlägt der Workflow fehl und die Pullrequest kann nicht gemerged werden, oder es wird explizit am Commit ausgewiesen, das dieser Commit fehlerhaft ist.
 
+\clearpage
 \section{ATRIP: Thorough}
-[jeweils 1 positives und negatives Beispiel zu ‘Thorough’; jeweils Code-Beispiel, Analyse und Begründung, was professionell/nicht professionell ist]
+\lstinputlisting[
+label={code:diceRollThorough},  % Label; genutzt für Referenzen auf dieses Code-Beispiel
+caption={Test der Attack Methode des DiceRollService},
+captionpos=b,               % Position, für die Caption:  t(op) oder b(ottom)
+language=java,     % Eigener Style der vor dem Dokument festgelegt wurde
+firstline=36,                % Zeilennummer im Dokument welche als erste angezeigt wird
+lastline=51,                 % Letzte Zeile welche ins LaTeX Dokument übernommen wird
+basicstyle=\tiny
+]{Quellcode/DiceRollServiceTest.java}
+In Listing \ref{code:diceRollThorough}, ist ein Beispiel zu sehen, bei dem alle notwendigen Funktionalitäten der \texttt{attack()} Methode getestet werden. So testet der Unit Test das korrekte berechnen von Werten unter Einbezug aller möglicher Eigenschaften einer Waffe, sowie das auftreten von Exception, in dem absichtlich falsche Eingaben an die Funktion gereicht werden. Somit dekt dieser Test alle Funktionalitäten der Methode vollständig ab und hält damit das Thorough Prinzip ein. Im Vergleich dazu,hält der in Listing \ref{code:diceRollNotThorough} gezeigte Test dieses Prinzip nicht ein. Er überprüft nur eine mögliche valide Eingabe und prüft keine Randfälle und falsch Eingaben. Somit wird nicht kontrolliert, ob nach veränderungen Exceptions noch korrekt geworfen werden oder ob ungewollte Seiteneffekte auftreten. 
+\lstinputlisting[
+label={code:diceRollNotThorough},  % Label; genutzt für Referenzen auf dieses Code-Beispiel
+caption={Test der rollSkill Methode des DiceRollService},
+captionpos=b,               % Position, für die Caption:  t(op) oder b(ottom)
+language=java,     % Eigener Style der vor dem Dokument festgelegt wurde
+firstline=53,                % Zeilennummer im Dokument welche als erste angezeigt wird
+lastline=56,                 % Letzte Zeile welche ins LaTeX Dokument übernommen wird
+basicstyle=\tiny
+]{Quellcode/DiceRollServiceTest.java}
 
 \section{ATRIP: Professional}
-[jeweils 1 positives und negatives Beispiel zu ‘Professional’; jeweils Code-Beispiel, Analyse und Begründung, was professionell/nicht professionell ist]
+\lstinputlisting[
+label={code:diceRollProfessional},  % Label; genutzt für Referenzen auf dieses Code-Beispiel
+caption={Auszug aus dem Test des DiceRollService, ganzes File: \href{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/test/java/rolls/DiceRollServiceTest.java}{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/test/java/rolls/DiceRollServiceTest.java}},
+captionpos=b,               % Position, für die Caption:  t(op) oder b(ottom)
+language=java,     % Eigener Style der vor dem Dokument festgelegt wurde
+firstline=63,                % Zeilennummer im Dokument welche als erste angezeigt wird
+lastline=97,                 % Letzte Zeile welche ins LaTeX Dokument übernommen wird
+basicstyle=\tiny
+]{Quellcode/DiceRollServiceTest.java}
+Listing \ref{code:diceRollProfessional} zeigt ein positives Beispiel des Professional Prinzips. In diesem Beispiel wurde Test Code wie Produktivcode behandelt und es wurde darauf geachtet, den Prozess des Mockings anstatt in einer riesigen Methode in mehrere kleine Untermethoden zu unterteilen. Somit ist der Code gut wartbar und falls eine Änderung gemacht werden muss, kann man sofort zu der jeweiligen Methode springen und muss nicht in einer Wall of Text die entsprechende Stelle raussuchen. Des weiteren kümmert sich jede Methode in diesem Beispiel genau um eine einzige Funktionalität. Somit wird in jeder Methode nur genau ein Mockobjekt generiert.
+\lstinputlisting[
+label={code:diceRollNotProfessional},  % Label; genutzt für Referenzen auf dieses Code-Beispiel
+caption={Auszug aus dem Test des DiceRollService, ganzes File: \href{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/test/java/character/CharacterServiceTest.java}{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/test/java/character/CharacterServiceTest.java}},
+captionpos=b,               % Position, für die Caption:  t(op) oder b(ottom)
+language=java,     % Eigener Style der vor dem Dokument festgelegt wurde
+firstline=118,                % Zeilennummer im Dokument welche als erste angezeigt wird
+lastline=136,                 % Letzte Zeile welche ins LaTeX Dokument übernommen wird
+basicstyle=\tiny
+]{Quellcode/CharacterServiceTest.java}
+Wie in Listing \ref{code:diceRollNotProfessional} kommt das Mocking von \texttt{HitDice}, \texttt{Weapons} etc. in anderen Tests auch zum Einsatz. Trotz dessen das auch in diesen Tests darauf geachtet wurde, den Mocking Prozess in kleine Methoden aufzuspalten und somit die Wartbarkeit und lesbarkeit zu erhöhen, stellt dies doch auch gleichzeitig ein negativ Beispiel dar. Da nun in jedem Test der ein Entsprechendes Objekt mockt, eine Änderung gemacht werden muss, wenn etwas an den jeweiligen Domain Objekten geändert wurde. Somit währe es hier sinnvoll gewesen, den Mocking Prozess in eine Utility Class auszulagern. Dies würde nicht nur die Wartbarkeit und lesbarkeit des Tests verbessern, sondern auch gleichzeitig die komplexität der Tests verringern.
 
 \section{Code Coverage}
 [Code Coverage im Projekt analysieren und begründen]

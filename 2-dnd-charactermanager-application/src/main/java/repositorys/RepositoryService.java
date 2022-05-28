@@ -6,10 +6,10 @@ import java.util.List;
 
 public final class RepositoryService {
 
-    private final RPGCharacterRepositoryImpl rpgCharacterRepository;
-    private final RPGCharacterGraveyardImpl rpgCharacterGraveyard;
+    private final RPGCharacterRepository rpgCharacterRepository;
+    private final RPGCharacterGraveyard rpgCharacterGraveyard;
 
-    public RepositoryService(RPGCharacterRepositoryImpl rpgCharacterRepository, RPGCharacterGraveyardImpl rpgCharacterGraveyard) {
+    public RepositoryService(RPGCharacterRepository rpgCharacterRepository, RPGCharacterGraveyard rpgCharacterGraveyard) {
         this.rpgCharacterRepository = rpgCharacterRepository;
         this.rpgCharacterGraveyard = rpgCharacterGraveyard;
     }
