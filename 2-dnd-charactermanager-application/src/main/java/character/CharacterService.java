@@ -39,16 +39,10 @@ public class CharacterService {
         return builder.toString();
     }
 
-    public String displayCharacter() {
-
-        StringBuilder hitDice = new StringBuilder();
-        for (HitDie hitDie : this.character.getCharacterClass().getHitDice()) {
-            hitDice.append(hitDie.toString());
-        }
-        StringBuilder weapons = new StringBuilder();
-        Weapon[] weaponArray = this.character.getInventory().getWeapons();
-        for (Weapon weapon : weaponArray) {
-            weapons
+    private String createWeaponStringRepresantation(Weapon[] weapons){
+        StringBuilder weaponsString = new StringBuilder();
+        for (Weapon weapon : weapons) {
+            weaponsString
                     .append(weapon.getName())
                     .append(": Damage die=(d")
                     .append(weapon.getDamageDie().getDieType())
@@ -57,6 +51,19 @@ public class CharacterService {
                     .append(weapon.isFinesse() ? ",finesse" : "")
                     .append(")\n        ");
         }
+        return weaponsString.toString();
+    }
+
+    public String displayCharacter() {
+
+        StringBuilder hitDice = new StringBuilder();
+        for (HitDie hitDie : this.character.getCharacterClass().getHitDice()) {
+            hitDice.append(hitDie.toString());
+        }
+
+        Weapon[] weaponArray = this.character.getInventory().getWeapons();
+        String weapons = createWeaponStringRepresantation(weaponArray);
+
 
         return "Character: " + this.character.getName() +
                 "\n    Class: " + this.character.getCharacterClass().getName() +

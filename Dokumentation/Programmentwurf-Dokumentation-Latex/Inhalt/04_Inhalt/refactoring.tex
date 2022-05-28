@@ -17,11 +17,19 @@ Die gesamte Klasse \texttt{InventoryService} besteht aus dead code. Sie wurde im
 \subsection{Rename Method}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{Bilder/CharacterService-old.pdf}
-	\includegraphics[width=0.4\textwidth]{Bilder/CharacterService.pdf}
+	\includegraphics[width=0.49\textwidth]{Bilder/CharacterService-old.pdf}
+	\includegraphics[width=0.49\textwidth]{Bilder/CharacterService.pdf}
 	\caption{UML Diagramm des Character Service vor und nach dem Refactoring}
 	\label{fig:rename}
 \end{figure}
-Die Methode \texttt{displayHashmap} wurde in \texttt{createStringRepresantationOfHashmap} umbennant, da die Methode keine Hashmap darstellt, sondern eine Stringrepräsentation einer übergebenen Hashmap baut und zurück gibt. Die UML Diagramme sind in Abbildung \ref{fig:rename} dargestellt.
+Die Methode \texttt{displayHashmap} wurde in \texttt{createStringRepresantationOfHashmap} umbennant, da die Methode keine Hashmap darstellt, sondern eine Stringrepräsentation einer übergebenen Hashmap baut und zurück gibt. Die UML Diagramme sind in Abbildung \ref{fig:rename} dargestellt. Alter commit: \href{https://github.com/lkno0705/DnD-CharacterManager/blob/497c202ebeea385178f9d1bca4aeb3401d92619c/2-dnd-charactermanager-application/src/main/java/character/CharacterService.java}{https://github.com/lkno0705/DnD-CharacterManager/blob/497c202ebeea385178f9d1bca4aeb3401d92619c/2-dnd-charactermanager-application/src/main/java/character/CharacterService.java}. Neuer commit: \href{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/main/java/character/CharacterService.java}{https://github.com/lkno0705/DnD-CharacterManager/blob/main/2-dnd-charactermanager-application/src/main/java/character/CharacterService.java}
 
-[2 unterschiedliche Refactorings aus der Vorlesung anwenden, begründen, sowie UML vorher/nachher liefern; jeweils auf die Commits verweisen]
+\subsection{Extract Method}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.49\textwidth]{Bilder/CharacterService.pdf}
+	\includegraphics[width=0.49\textwidth]{Bilder/CharacterService-extracted.pdf}
+	\caption{UML Diagramm des Character Service vor und nach dem Refactoring}
+	\label{fig:extract}
+\end{figure}
+In der Methode \texttt{displayCharacter}, wurde eine \texttt{for-Schleife} extrahiert, die eine String Repräsentation des Waffen arrays des Inventorys aufgebaut hat. Dies dient dazu die recht lange Methode \texttt{displayCharacter} weiter zu verkürzen und so ihre lesbarkeit zu erhöhen.
