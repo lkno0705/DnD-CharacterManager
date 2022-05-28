@@ -1,8 +1,35 @@
 \chapter{Unit Tests}
 \section{10 Unit Tests}
-[ein Commit angeben, bei dem duplizierter Code/duplizierte Logik aufgelöst wurde; Code-Beispiele (vorher/nachher); begründen und Auswirkung beschreiben]
-<Todo Tabelle hier>
-
+Tabelle irgendwo in diesem Kapitel. Latex packt die dahin wo es das für richtig hält
+\afterpage{%
+	\clearpage% Flush earlier floats (otherwise order might not be correct)
+	\thispagestyle{empty}% empty page style (?)
+	\begin{landscape}% Landscape page
+		\centering % Center table
+		\begin{adjustbox}{center,caption={Evaluation der Datensätze},float=table,label={tab:Datasets}}
+			\centering
+			\label{tab:Datasets}
+			\small
+			\setlength{\tabcolsep}{3pt}
+	\begin{tabular}{l|l}
+		Unit Test                                & Beschreibung                                                                       \\ \hline
+		RPGCharacterTest\#getAC()                & Es wird geprüft ob die Armor Class (AC) des Charackters korrekt berechnet wird.    \\ \hline
+		RPGCharacterTest\#getSavingThrows()      & Es wird geprüft ob die SavingThrows Boni des Charackters korrekt berechnet werden. \\ \hline
+		RPGCharacterTest\#getSkills()            & Es wird geprüft ob die Skill Boni des Charackters korrekt berechnet werden.        \\ \hline
+		DeathSavesTest\#getFailures()            & Prüft ob die Anzahl an Fehlschlägen korrekt berechnet wird.                        \\ \hline
+		DeathSavesTest\#getSuccesses()           & Prüft ob die Anzahl an Erfolgreichen Death Saves korrekt berechnet wird            \\ \hline
+		DiceRollServiceTest\#rollInitiative()    & Prüft ob das Ergebnis des Initiative Wurfs korrekt berechnet wird                  \\ \hline
+		DiceRollServiceTest\#attack()            & Prüft ob der Damage beim Ausführen einer Attacke korrekt berechnet wird            \\ \hline
+		DiceRollServiceTest\#rollSkill()         & Prüft ob das Ergebnis eines Skill Rolls korrekt berechnet wird                     \\ \hline
+		DiceRollServicetest\#rollSavingThrow()   & Prüft ob das Ergebnis eines SavingThrows korrekt berechnet wird                    \\ \hline
+		CharacterServiceTest\#displayCharacter() & Prüft ob der String eines Charackters korrekt zusammengebaut wird.                
+	\end{tabular}
+       % \caption{Evaluation der Datensätze}
+\end{adjustbox}
+% Add 'table' caption
+\end{landscape}
+\clearpage% Flush page
+}
 \section{ATRIP: Automatic}
 [Begründung/Erläuterung, wie ‘Automatic’ realisiert wurde]
 
