@@ -31,7 +31,7 @@ public class CharacterService {
         this.rpgCharacterRepositoryService.updateCharacter(rpgCharacter);
     }
 
-    private String displayHashmap(HashMap<String, Integer> hashMap) {
+    private String createStringRepresantationOfHashmap(HashMap<String, Integer> hashMap) {
         StringBuilder builder = new StringBuilder();
         for (String key : hashMap.keySet()) {
             builder.append(key).append(": ").append(hashMap.get(key)).append("\n    ");
@@ -89,16 +89,16 @@ public class CharacterService {
                 "\n    Charisma: " + this.character.getAttributes().getCharisma() +
                 "\n    Charisma Modifier: " + this.character.getAttributes().getCharismaMod() +
                 "\n---------------------Saving Throws------------------------" +
-                "\n    " + displayHashmap(this.character.getSavingThrows()) +
+                "\n    " + createStringRepresantationOfHashmap(this.character.getSavingThrows()) +
                 "\n---------------------Skills------------------------" +
-                "\n    " + displayHashmap(this.character.getSkills()) +
+                "\n    " + createStringRepresantationOfHashmap(this.character.getSkills()) +
                 "\n---------------------Inventory------------------------" +
                 "\n    CP" + this.character.getInventory().getCurrencys().getCP() +
                 "\n    SP" + this.character.getInventory().getCurrencys().getSP() +
                 "\n    EP" + this.character.getInventory().getCurrencys().getEP() +
                 "\n    GP" + this.character.getInventory().getCurrencys().getGP() +
                 "\n    PP" + this.character.getInventory().getCurrencys().getPP() +
-                "\n    Items:" + "\n        " + displayHashmap(this.character.getInventory().getItems()) +
+                "\n    Items:" + "\n        " + createStringRepresantationOfHashmap(this.character.getInventory().getItems()) +
                 "\n    Weapons:" + "\n        " + weapons +
                 "\n    Armor: " + this.character.getInventory().getArmor().toString();
     }

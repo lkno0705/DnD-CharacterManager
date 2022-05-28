@@ -1,7 +1,27 @@
 \chapter{Refactoring}
 
 \section{Code Smells}
-[jeweils 1 Code-Beispiel zu 2 Code Smells aus der Vorlesung; jeweils Code-Beispiel und einen möglichen Lösungsweg bzw. den genommen Lösungsweg beschreiben (inkl. (Pseudo-)Code)]
+\begin{lstlisting}[
+	captionpos=b,
+	caption={Beschreibung eines in einem Bild enthaltenen Objektes mittels des Yolo Datei Formats},
+	label={code:LongParameterList},
+	language=java,
+	escapeinside={@}{@}]
+	public RPGCharacter(CharacterRace race, CharacterClass characterClass, Background background, Inventory inventory, String name, Attributes attributes, DeathSaves deathSaves, Player player, int xp, int age) throws RPGCharacterException
+\end{lstlisting}
+Listing \ref{code:LongParameterList} zeigt den Konstruktor der Klasse \texttt{RPGCharakter}. Dieser stellt den CodeSmell Long Parameter List dar. Um diesen zu lösen, müsste man mehrere der bereits zusammengefassten Objekte in weitere Objekte zusammenfassen. So wäre es z.B. möglich die Parameter \texttt{race}, \texttt{characterClass}, \texttt{Background}, \texttt{Attributes} in ein neues Objekt namens \texttt{CharacterProperties} zusammen zu fassen.
+
+Die gesamte Klasse \texttt{InventoryService} besteht aus dead code. Sie wurde im Vorfeld angelegt um Änderungen im Inventory vornehmen zu können. Später wurde der Scope des Projektes jedoch verändert und der Code wird nicht mehr benötigt, wurde aber nicht gelöscht. Dementsprächend wäre es sinnvoll diesen Code nun zu löschen.
 
 \section{2 Refactorings}
+\subsection{Rename Method}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Bilder/CharacterService-old.pdf}
+	\includegraphics[width=0.4\textwidth]{Bilder/CharacterService.pdf}
+	\caption{UML Diagramm des Character Service vor und nach dem Refactoring}
+	\label{fig:rename}
+\end{figure}
+Die Methode \texttt{displayHashmap} wurde in \texttt{createStringRepresantationOfHashmap} umbennant, da die Methode keine Hashmap darstellt, sondern eine Stringrepräsentation einer übergebenen Hashmap baut und zurück gibt. Die UML Diagramme sind in Abbildung \ref{fig:rename} dargestellt.
+
 [2 unterschiedliche Refactorings aus der Vorlesung anwenden, begründen, sowie UML vorher/nachher liefern; jeweils auf die Commits verweisen]

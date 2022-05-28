@@ -78,7 +78,36 @@ basicstyle=\tiny
 Wie in Listing \ref{code:diceRollNotProfessional} kommt das Mocking von \texttt{HitDice}, \texttt{Weapons} etc. in anderen Tests auch zum Einsatz. Trotz dessen das auch in diesen Tests darauf geachtet wurde, den Mocking Prozess in kleine Methoden aufzuspalten und somit die Wartbarkeit und lesbarkeit zu erhöhen, stellt dies doch auch gleichzeitig ein negativ Beispiel dar. Da nun in jedem Test der ein Entsprechendes Objekt mockt, eine Änderung gemacht werden muss, wenn etwas an den jeweiligen Domain Objekten geändert wurde. Somit währe es hier sinnvoll gewesen, den Mocking Prozess in eine Utility Class auszulagern. Dies würde nicht nur die Wartbarkeit und lesbarkeit des Tests verbessern, sondern auch gleichzeitig die komplexität der Tests verringern.
 
 \section{Code Coverage}
-[Code Coverage im Projekt analysieren und begründen]
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/CodeCoverage.pdf}
+	\caption{Code Coverage Report generiert von IntelliJ}
+	\label{fig:CodeCoverage}
+\end{figure}
+Abbildung \ref{fig:CodeCoverage} zeigt den Code Coverage report der Tests über das gesamte Projekt. Die generelle Coverage ist mit einer Line Coverage von 14.1\%, einer Class Coverage von 13.6\% und einer Method Coverage von 9.5\% recht gering. Dies liegt daran das der größte Teil des Projektes ausschließlich aus der Modellierung von Domänenobjekten besteht, die ausschließlich Setter und Getter enthalten und nicht sehr viel Logik mit sich bringen. Diese Objekte werden in den jeweiligen Unit Tests durch mocks ersetzt und somit nicht durchlaufen. Daher entstehen sehr geringe Coverage Prozent zahlen. In Packages wie dem \texttt{rolls} Package ist das anders. Dieses Package enthält die UseCases des \texttt{DiceRollService}, die jeweils für den Nutzer wichtige Ergebnisse berechnen. Diese lassen sich sinnvoll und gut testen. Somit erreicht die Code Coverage in diesem Package auch einen Wert von 100\% in allen 3 Coverage Kategorien. Um die Code Coverage zu verbessern wären in diesem Projekt Integration Tests sinnvoll. Da sie neben der reinen Funktionalität einzelner Methoden, auch das zusammenspiel der einzelnen Klassen und Objekte prüfen und somit auch prüfen können ob Dinge richtig gesetzt und gelesen werden und ob die Semantik der Prozesse korrekt ist.
 
 \section{Fakes und Mocks}
-[Analyse und Begründung des Einsatzes von 2 Fake/Mock-Objekten; zusätzlich jeweils UML Diagramm der Klasse]
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/CharacterServiceTest.pdf}
+	\caption{Abhängigkeiten der CharacterService Klasse}
+	\label{fig:Mocks}
+\end{figure}
+Wie Abbildung \ref{fig:Mocks} zu entnehmen ist, hängt die Klasse \texttt{CharacterService} von allen Klassen der Domain Schicht ab und hat somit sehr viele Abhängigkeiten. Ein Unit Test soll jedoch möglichst wenige bis gar keine Abhängigkeiten besitzen, um den Test und die auftretenden Effekte auf einen Ort zu isolieren und zu beschränken. Um dies zu ermöglichen und die Abhängigkeiten der Klassen zu reduzieren, wurde jedes einzelne Objekt, von dem der \texttt{CharacterService} abhängig ist durch einen Mock / einen Fake ersetzt. Dementsprechend wurden folgende Klassen ersetzt:
+\begin{itemize}
+	\item \texttt{HitDie}
+	\item \texttt{Weapon}
+	\item \texttt{RepositoryService}
+	\item \texttt{Player}
+	\item \texttt{CharacterClass}
+	\item \texttt{Personality}
+	\item \texttt{Background}
+	\item \texttt{CharacterRace}
+	\item \texttt{DeathSaves}
+	\item \texttt{Attributes}
+	\item \texttt{Currencys}
+	\item \texttt{Armor}
+	\item \texttt{Inventory}
+	\item \texttt{RPGCharacter}
+\end{itemize}
+Wären diese Objekte nicht durch Fakes ersetzt worden, hätte dieser Test praktisch das gesamte Projekt getestet. Ein ähnlicher Fall stellt auch der \texttt{DiceRollServiceTest} dar, auch wenn dieser weniger Abhängigkeiten besitzt.

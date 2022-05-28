@@ -1,0 +1,186 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CharacterClassFactory</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">factories</a>
+</div>
+
+<h1>Coverage Summary for Class: CharacterClassFactory (factories)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CharacterClassFactory</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package factories;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import entities.CharacterClass;
+<i class="no-highlight">4</i>&nbsp;import exceptions.CharacterClassException;
+<i class="no-highlight">5</i>&nbsp;import exceptions.SavingThrowException;
+<i class="no-highlight">6</i>&nbsp;import exceptions.SkillProficiencyException;
+<i class="no-highlight">7</i>&nbsp;import valueobjects.HitDie;
+<i class="no-highlight">8</i>&nbsp;import valueobjects.SavingThrowProficiencies;
+<i class="no-highlight">9</i>&nbsp;import valueobjects.SkillProficiencies;
+<i class="no-highlight">10</i>&nbsp;
+<i class="no-highlight">11</i>&nbsp;import java.util.HashMap;
+<i class="no-highlight">12</i>&nbsp;import java.util.List;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;public class CharacterClassFactory {
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;    private int proficiencyBonus;
+<i class="no-highlight">17</i>&nbsp;    private int level;
+<i class="no-highlight">18</i>&nbsp;    private List&lt;String&gt; languages;
+<i class="no-highlight">19</i>&nbsp;    private SkillProficiencies skillProficiencies;
+<i class="no-highlight">20</i>&nbsp;    private SavingThrowProficiencies savingThrowProficiencys;
+<i class="no-highlight">21</i>&nbsp;    private int constitutionModifier;
+<i class="no-highlight">22</i>&nbsp;    private String name;
+<i class="no-highlight">23</i>&nbsp;    private List&lt;HitDie&gt; hitDice;
+<i class="no-highlight">24</i>&nbsp;
+<b class="nc"><i class="no-highlight">25</i>&nbsp;    public CharacterClassFactory(){}</b>
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    public CharacterClassFactory proficiencyBonus(int proficiencyBonus){
+<b class="nc"><i class="no-highlight">28</i>&nbsp;        this.proficiencyBonus = proficiencyBonus;</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;        return this;</b>
+<i class="no-highlight">30</i>&nbsp;    }
+<i class="no-highlight">31</i>&nbsp;
+<i class="no-highlight">32</i>&nbsp;    public CharacterClassFactory level(int level){
+<b class="nc"><i class="no-highlight">33</i>&nbsp;        this.level = level;</b>
+<b class="nc"><i class="no-highlight">34</i>&nbsp;        return this;</b>
+<i class="no-highlight">35</i>&nbsp;    }
+<i class="no-highlight">36</i>&nbsp;
+<i class="no-highlight">37</i>&nbsp;    public CharacterClassFactory languages(List&lt;String&gt; languages){
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        this.languages = languages;</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;        return this;</b>
+<i class="no-highlight">40</i>&nbsp;    }
+<i class="no-highlight">41</i>&nbsp;
+<i class="no-highlight">42</i>&nbsp;    public CharacterClassFactory skillProficiencies(SkillProficiencies skillProficiencies){
+<b class="nc"><i class="no-highlight">43</i>&nbsp;        this.skillProficiencies = skillProficiencies;</b>
+<b class="nc"><i class="no-highlight">44</i>&nbsp;        return this;</b>
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;    public CharacterClassFactory skillProficiencies(HashMap&lt;String, Boolean&gt; skillProficiencies) throws SkillProficiencyException {
+<b class="nc"><i class="no-highlight">48</i>&nbsp;        this.skillProficiencies = new SkillProficiencies(skillProficiencies);</b>
+<b class="nc"><i class="no-highlight">49</i>&nbsp;        return this;</b>
+<i class="no-highlight">50</i>&nbsp;    }
+<i class="no-highlight">51</i>&nbsp;
+<i class="no-highlight">52</i>&nbsp;    public CharacterClassFactory savingThrowProficiencies(SavingThrowProficiencies savingThrowProficiencys){
+<b class="nc"><i class="no-highlight">53</i>&nbsp;        this.savingThrowProficiencys = savingThrowProficiencys;</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;        return this;</b>
+<i class="no-highlight">55</i>&nbsp;    }
+<i class="no-highlight">56</i>&nbsp;
+<i class="no-highlight">57</i>&nbsp;    public CharacterClassFactory savingThrowProficiencies(HashMap&lt;String, Boolean&gt; savingThrowProficiencies) throws SavingThrowException {
+<b class="nc"><i class="no-highlight">58</i>&nbsp;        this.savingThrowProficiencys = new SavingThrowProficiencies(savingThrowProficiencies);</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;        return this;</b>
+<i class="no-highlight">60</i>&nbsp;    }
+<i class="no-highlight">61</i>&nbsp;
+<i class="no-highlight">62</i>&nbsp;    public CharacterClassFactory constitutionModifier(int constitutionModifier){
+<b class="nc"><i class="no-highlight">63</i>&nbsp;        this.constitutionModifier = constitutionModifier;</b>
+<b class="nc"><i class="no-highlight">64</i>&nbsp;        return this;</b>
+<i class="no-highlight">65</i>&nbsp;    }
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;    public CharacterClassFactory hitDice(List&lt;HitDie&gt; hitDice){
+<b class="nc"><i class="no-highlight">68</i>&nbsp;        this.hitDice = hitDice;</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;        return this;</b>
+<i class="no-highlight">70</i>&nbsp;    }
+<i class="no-highlight">71</i>&nbsp;
+<i class="no-highlight">72</i>&nbsp;    public CharacterClassFactory name(String name){
+<b class="nc"><i class="no-highlight">73</i>&nbsp;        this.name = name;</b>
+<b class="nc"><i class="no-highlight">74</i>&nbsp;        return this;</b>
+<i class="no-highlight">75</i>&nbsp;    }
+<i class="no-highlight">76</i>&nbsp;
+<i class="no-highlight">77</i>&nbsp;    public CharacterClass build() throws CharacterClassException {
+<b class="nc"><i class="no-highlight">78</i>&nbsp;        return new CharacterClass(proficiencyBonus, level, languages, skillProficiencies, savingThrowProficiencys, constitutionModifier, hitDice, name);</b>
+<i class="no-highlight">79</i>&nbsp;    }
+<i class="no-highlight">80</i>&nbsp;
+<i class="no-highlight">81</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-28 13:13</div>
+</div>
+</body>
+</html>
